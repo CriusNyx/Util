@@ -11,13 +11,6 @@ on:
 
 jobs:
   build:
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
-      packages: write # for pushing GitHub Nuget packages
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,9 +23,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+  test:
+    runs-on: ubuntu-latest
+    steps:
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Pack
-      run: (cd core && dotnet pack --configuration Release -p PackageId=CriusNyxUtil)
-    - name: Publish
-      run: dotnet nuget push ./core/bin/Release/CriusNyxUtil.1.0.0.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
