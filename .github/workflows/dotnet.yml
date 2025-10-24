@@ -61,6 +61,7 @@ jobs:
         # Get a project version from the *.csproj file
         ls
         VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" ./core/core.csproj)
+        echo "Test"
         echo "Project version in $VERSION"
         # Save the result into the variable VERSION
         echo "VERSION=$VERSION" >> $GITHUB_ENV
