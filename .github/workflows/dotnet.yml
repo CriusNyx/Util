@@ -35,4 +35,4 @@ jobs:
     - name: Pack
       run: (cd core && dotnet pack --configuration Release -p PackageId=CriusNyxUtil)
     - name: Publish
-      run: dotnet nuget push ./core/bin/Release/CirusNyxUtil.1.0.0.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push ./core/bin/Release/CriusNyxUtil.1.0.0.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
