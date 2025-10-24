@@ -53,7 +53,7 @@ jobs:
     name: Update Version Info
     runs-on: ubuntu-latest
     outputs:
-      NEXT_VERSION: ${{ steps.incrementVersion.NEXT_VERSION }}
+      NEXT_VERSION: ${{ steps.incrementVersion.outputs.NEXT_VERSION }}
     steps:
     - uses: actions/checkout@v4
     - uses: dcarbone/install-jq-action@v3
