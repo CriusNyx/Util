@@ -58,10 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Git
-      run: |
-        git config --global user.name "${{ secrets.GIT_USER_NAME }}"
-        git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
+    - uses: dcarbone/install-jq-action@v3
     - name: Get project version from .csproj
       shell: bash
       run: |
@@ -72,15 +69,12 @@ jobs:
         echo "Project version in $VERSION"
         # Save the result into the variable VERSION
         echo "VERSION=$VERSION" >> $GITHUB_ENV
-    - name: Get latest tag
+    - name: Get latest tag from Nuget
       id: tag
       run: |
         # Get the latest release version according to the latest version tag from the repository
-        git fetch --tags
-        LATEST_TAG=$(git tag -l "v*" --sort=-v:refname | head -n 1)
-        echo "Latest tag: $LATEST_TAG"
-        # Save the result into the variable LATEST_TAG
-        echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
+        LATEST_TAG=$(curl https://api.nuget.org/v3-flatcontainer/criusnyxutil/index.json | jq ".versions[-1]" -r)
+        echo "LATEST_TAG=$VERSION" >> $GITHUB_ENV
     - name: Compare Strings
       id: compare_versions
       run: |
@@ -100,9 +94,3 @@ jobs:
       run: |
         NEXT_VERSION=$(echo $GREATER_VERSION | awk -F. -v OFS=. '{$NF += 1 ; print}')
         echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_ENV
-    - name: Create and push tag
-      run: |
-        NEW_TAG="v$NEXT_VERSION"
-        git tag $NEW_TAG
-        echo "Tag created: $NEW_TAG"
-        git push origin $NEW_TAG
