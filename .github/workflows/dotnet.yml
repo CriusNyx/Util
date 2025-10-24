@@ -23,9 +23,30 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - uses: action/upload-artifact@v4
+      with: 
+        name: core
+        path: ./core/bin
+    - uses: action/upload-artifact@v4
+      with:
+        name: tests
+        path: ./tests/bin
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - uses: actions/download-artifact@v4
+      with:
+        name: core
+        path: ./core/bin
+    - uses: actions/download-artifact@v4
+      with:
+        name: tests
+        path: ./tests/bin
     - name: Test
       run: dotnet test --no-build --verbosity normal
