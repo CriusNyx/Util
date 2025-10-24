@@ -116,9 +116,7 @@ jobs:
   publishNugetPackage:
     name: Publish nuget package
     runs-on: ubuntu-latest
-    needs: 
-    - test
-    
+    needs:
     - createNugetPackage
     steps: 
     - uses: actions/checkout@v4
