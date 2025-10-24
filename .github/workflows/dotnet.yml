@@ -53,7 +53,7 @@ jobs:
     name: Update Version Info
     runs-on: ubuntu-latest
     outputs:
-      NEXT_VERSION: ${{steps.incrementVersion.NEXT_VERSION}}
+      NEXT_VERSION: ${{ steps.incrementVersion.NEXT_VERSION }}
     steps:
     - uses: actions/checkout@v4
     - uses: dcarbone/install-jq-action@v3
@@ -94,6 +94,7 @@ jobs:
         NEXT_VERSION=$(echo $GREATER_VERSION | awk -F. -v OFS=. '{$NF += 1 ; print}')
         echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_ENV
         echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_OUTPUT
+        echo "NEXT_VERSION=$NEXT_VERSION"
   createNugetPackage:
     name: Create nuget package
     runs-on: ubuntu-latest
@@ -107,7 +108,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - env:
-        NEXT_VERSION: ${{needs.version.outputs.NEXT_VERSION}}
+        NEXT_VERSION: ${{ needs.version.outputs.NEXT_VERSION }}
       run: dotnet pack --configuration Release -p Version=$NEXT_VERSION
     - uses: actions/upload-artifact@v4
       with:
