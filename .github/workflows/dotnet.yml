@@ -92,9 +92,12 @@ jobs:
           echo "The project version is not incremented"
           echo "is_valid=false" >> $GITHUB_OUTPUT
         fi
+    - name: Increment version
+      run: |
+        NEXT_VERSION=$(echo ${GREATER_VERSION} | awk -F. -v OFS=. '{$NF += 1 ; print}')
     - name: Create and push tag
       run: |
-        NEW_TAG="v$VERSION"
+        NEW_TAG="v$NEXT_VERSION"
         git tag $NEW_TAG
         echo "Tag created: $NEW_TAG"
         git push origin $NEW_TAG 
