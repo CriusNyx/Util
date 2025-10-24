@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET
@@ -51,11 +50,10 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
   version:
-    permissions:
-      contents: write
-      actions: write
     name: Update Version Info
     runs-on: ubuntu-latest
+    outputs:
+      newVersion: ${{steps.incrementVersion.newVersion}}
     steps:
     - uses: actions/checkout@v4
     - uses: dcarbone/install-jq-action@v3
@@ -91,6 +89,8 @@ jobs:
         fi
         echo "GREATER_VERSION=$GREATER_VERSION" >> $GITHUB_ENV
     - name: Increment version
+      id: incrementVersion
       run: |
         NEXT_VERSION=$(echo $GREATER_VERSION | awk -F. -v OFS=. '{$NF += 1 ; print}')
         echo "NEXT_VERSION=$NEXT_VERSION" >> $GITHUB_ENV
+        echo "newVersion=$NEXT_VERSION" >> $GITHUB_OUTPUT
