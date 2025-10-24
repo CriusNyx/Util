@@ -32,7 +32,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Authenticate
-      run: dotnet nuget add source --username CriusNyx --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/CriusNyxUtil/index.json"
+    - name: Pack
+      run: (cd core && dotnet pack --configuration Release -p PackageId=CriusNyxUtil)
     - name: Publish
-      run: (cd core && dotnet pack --configuration Release -p PackageId=CriusNyxUtil) && dotnet nuget push "core/bin/Release/CriusNyxUtil.1.0.0.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+      run: dotnet nuget push ./core/bin/Release/CirusNyxUtil.1.0.0.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
