@@ -101,14 +101,14 @@ jobs:
     - test
     - version
     steps:
-    - env:
-        NEXT_VERSION: ${{needs.version.outputs.NEXT_VERSION}}
     - uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - run: dotnet pack --configuration Release -p Version=$NEXT_VERSION
+    - env:
+        NEXT_VERSION: ${{needs.version.outputs.NEXT_VERSION}}
+      run: dotnet pack --configuration Release -p Version=$NEXT_VERSION
     - uses: actions/upload-artifact@v4
       with:
         name: nuget
