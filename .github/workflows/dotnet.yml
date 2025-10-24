@@ -29,4 +29,4 @@ jobs:
     - name: Authenticate
       run: dotnet nuget add source --username CriusNyx --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/CriusNyxUtil/index.json"
     - name: Publish
-      run: dotnet pack --configuration Release && dotnet nuget push "bin/Release/CriusNyxUtil.1.0.0.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+      run: (cd core && dotnet pack --configuration Release) && dotnet nuget push "core/bin/Release/CriusNyxUtil.1.0.0.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
