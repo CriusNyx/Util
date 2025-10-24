@@ -59,7 +59,7 @@ jobs:
       shell: bash
       run: |
         # Get a project version from the *.csproj file
-        echo $(ls)
+        ls
         VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" ./core/core.csproj)
         echo "Project version in $VERSION"
         # Save the result into the variable VERSION
