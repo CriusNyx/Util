@@ -67,17 +67,18 @@ jobs:
         echo "Project version in $VERSION"
         # Save the result into the variable VERSION
         echo "VERSION=$VERSION" >> $GITHUB_ENV
-    - name: Get latest tag from Nuget
+    - name: Get latest version from Nuget
       id: tag
       run: |
         # Get the latest release version according to the latest version tag from the repository
-        LATEST_TAG=$(curl https://api.nuget.org/v3-flatcontainer/criusnyxutil/index.json | jq ".versions[-1]" -r)
-        echo "LATEST_TAG=$VERSION" >> $GITHUB_ENV
+        LATEST_VERSION=$(curl https://api.nuget.org/v3-flatcontainer/criusnyxutil/index.json | jq ".versions[-1]" -r)
+        echo "LATEST_VERSION=$LATEST_VERSION"
+        echo "LATEST_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
     - name: Compare Strings
       id: compare_versions
       run: |
         # Find the max version by comparing VERSION and LATEST_TAG and save the result into the variable GREATER_VERSION
-        GREATER_VERSION=$(printf "%s\n%s" "$VERSION" "${LATEST_TAG#v}" | sort -V | tail -n 1)
+        GREATER_VERSION=$(printf "%s\n%s" "$VERSION" "${LATEST_VERSION#v}" | sort -V | tail -n 1)
         if [[ "$VERSION" == "$GREATER_VERSION" && "$VERSION" != "${LATEST_TAG#v}" ]]; then
           # If the version in the project configuration file is higher than the tag version, then the check is passed.
           echo "The new release version is ${LATEST_TAG#v}"
