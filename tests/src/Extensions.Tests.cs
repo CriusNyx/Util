@@ -1,5 +1,3 @@
-using System.Data.Common;
-
 namespace CriusNyx.Util.Tests;
 
 public class ExtensionTests
@@ -69,5 +67,13 @@ public class ExtensionTests
     Dictionary<string, string> dict = new Dictionary<string, string>() { { "key", "value" } };
     Assert.That(dict.Safe("key"), Is.EqualTo("value"));
     Assert.Null(dict.Safe("value"));
+  }
+
+  [Test]
+  public void Transform_Works()
+  {
+    var source = "a";
+    var result = source.Transform(x => x + "b");
+    Assert.That(result, Is.EqualTo("ab"));
   }
 }

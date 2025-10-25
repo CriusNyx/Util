@@ -65,4 +65,9 @@ public static class Extensions
     }
     return default;
   }
+
+  public static U Transform<T, U>(this T value, Func<T, U> transformation)
+  {
+    return transformation(value);
+  }
 }

@@ -1,6 +1,8 @@
 using System.Runtime.InteropServices;
 using CriusNyx.Util;
 
+namespace CriusNyx.Util.Tests;
+
 class ClassA { }
 
 class ClassB { }
