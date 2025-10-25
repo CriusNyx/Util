@@ -42,4 +42,32 @@ public class ExtensionTests
     Assert.That(idk, Is.EqualTo(3));
     Assert.That(result, Is.EqualTo(3));
   }
+
+  [Test]
+  public void Safe_Arr_Works()
+  {
+    string[] list = ["Hello", "World"];
+    Assert.That(list.Safe(0), Is.EqualTo("Hello"));
+    Assert.That(list.Safe(1), Is.EqualTo("World"));
+    Assert.Null(list.Safe(-1));
+    Assert.Null(list.Safe(2));
+  }
+
+  [Test]
+  public void Safe_List_Works()
+  {
+    List<string> list = new List<string>() { "Hello", "World" };
+    Assert.That(list.Safe(0), Is.EqualTo("Hello"));
+    Assert.That(list.Safe(1), Is.EqualTo("World"));
+    Assert.Null(list.Safe(-1));
+    Assert.Null(list.Safe(2));
+  }
+
+  [Test]
+  public void Safe_Dictionary_Works()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string>() { { "key", "value" } };
+    Assert.That(dict.Safe("key"), Is.EqualTo("value"));
+    Assert.Null(dict.Safe("value"));
+  }
 }

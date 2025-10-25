@@ -38,4 +38,31 @@ public static class Extensions
     action(element);
     return element;
   }
+
+  public static T? Safe<T>(this T[] arr, int index)
+  {
+    if (index >= 0 && index < arr.Length)
+    {
+      return arr[index];
+    }
+    return default;
+  }
+
+  public static T? Safe<T>(this IList<T> list, int index)
+  {
+    if (index >= 0 && index < list.Count)
+    {
+      return list[index];
+    }
+    return default;
+  }
+
+  public static U? Safe<T, U>(this IDictionary<T, U> dict, T key)
+  {
+    if (dict.TryGetValue(key, out var value))
+    {
+      return value;
+    }
+    return default;
+  }
 }
