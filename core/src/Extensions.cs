@@ -32,4 +32,10 @@ public static class Extensions
   {
     return (value.Item1, value.Item2, value.Item3, other);
   }
+
+  public static T Touch<T>(this T element, Action<T> action)
+  {
+    action(element);
+    return element;
+  }
 }
