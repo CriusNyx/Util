@@ -1,6 +1,3 @@
-using System.Runtime.InteropServices;
-using CriusNyx.Util;
-
 namespace CriusNyx.Util.Tests;
 
 class ClassA { }
@@ -37,5 +34,14 @@ public class LinqExtensionsTests
     object[] arr = [a, b];
     var actual = arr.WhereAs<ClassA>();
     Assert.That(actual, Is.EquivalentTo(new ClassA[] { a }));
+  }
+
+  [Test]
+  public void Then_Concat_Works()
+  {
+    var a = new object();
+    var b = new object();
+    var actual = a.ThenConcat([b]);
+    Assert.That(actual, Is.EquivalentTo(new object[] { a, b }));
   }
 }

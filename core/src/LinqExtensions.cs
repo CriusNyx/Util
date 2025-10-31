@@ -23,4 +23,9 @@ public static class LinqExtensions
       }
     }
   }
+
+  public static IEnumerable<T> ThenConcat<T>(this T element, IEnumerable<T> then)
+  {
+    return new T[] { element }.Concat(then);
+  }
 }
