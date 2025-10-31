@@ -37,11 +37,19 @@ public class LinqExtensionsTests
   }
 
   [Test]
-  public void Then_Concat_Works()
+  public void ThenConcat_Works()
   {
     var a = new object();
     var b = new object();
     var actual = a.ThenConcat([b]);
     Assert.That(actual, Is.EquivalentTo(new object[] { a, b }));
+  }
+
+  [Test]
+  public void AsArray_works()
+  {
+    var a = new object();
+    var actual = a.AsArray();
+    Assert.That(actual, Is.EquivalentTo(new object[] { a }));
   }
 }

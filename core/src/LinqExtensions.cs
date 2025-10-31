@@ -24,6 +24,11 @@ public static class LinqExtensions
     }
   }
 
+  public static T[] AsArray<T>(this T element)
+  {
+    return [element];
+  }
+
   public static IEnumerable<T> ThenConcat<T>(this T element, IEnumerable<T> then)
   {
     return new T[] { element }.Concat(then);
