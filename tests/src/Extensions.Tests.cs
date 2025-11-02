@@ -3,6 +3,45 @@ namespace CriusNyx.Util.Tests;
 public class ExtensionTests
 {
   [Test]
+  public void As_Returns_When_Correct()
+  {
+    var a = new ClassA();
+    object o = a;
+    var actual = o.As<ClassA>();
+
+    Assert.That(actual, Is.EqualTo(a));
+  }
+
+  [Test]
+  public void As_Returns_Null_When_Not_Correct()
+  {
+    var a = new ClassB();
+    object o = a;
+    var actual = o.As<ClassA>();
+
+    Assert.Null(actual);
+  }
+
+  [Test]
+  public void As_NotNull_Returns_When_Correct()
+  {
+    var a = new ClassA();
+    var o = a;
+    var actual = o.AsNotNull<ClassA>();
+    Assert.That(actual, Is.EqualTo(a));
+  }
+
+  [Test]
+  public void As_NotNull_Throws_When_Not_Correct()
+  {
+    var o = new object();
+    Assert.Throws<NullReferenceException>(() =>
+    {
+      o.AsNotNull<ClassA>();
+    });
+  }
+
+  [Test]
   public void NotNull_Dereferences_Defined_Valued()
   {
     var value = new object();

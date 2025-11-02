@@ -2,6 +2,20 @@ namespace CriusNyx.Util;
 
 public static class Extensions
 {
+  public static T? As<T>(this object value)
+  {
+    if (value is T t)
+    {
+      return t;
+    }
+    return default;
+  }
+
+  public static T AsNotNull<T>(this object value, string? fieldName = null)
+  {
+    return value.As<T>().NotNull(fieldName);
+  }
+
   public static T NotNull<T>(this T? value, string? fieldName = null)
   {
     if (value == null)
