@@ -1,3 +1,5 @@
+using NUnit.Framework.Internal;
+
 namespace CriusNyx.Util.Tests;
 
 class ClassA { }
@@ -26,10 +28,27 @@ public class LinqExtensionsTests
   }
 
   [Test]
-  public void AsArray_works()
+  public void AsArray_Works()
   {
     var a = new object();
     var actual = a.AsArray();
     Assert.That(actual, Is.EquivalentTo(new object[] { a }));
+  }
+
+  [Test]
+  public void WithIndex_Works()
+  {
+    string[] elements = ["A", "B"];
+    var actual = elements.WithIndex();
+    (string, int)[] expected = ["A".With(0), "B".With(1)];
+    Assert.That(actual, Is.EquivalentTo(expected));
+  }
+
+  [Test]
+  public void PadWith_Works()
+  {
+    string[] elements = ["A", "B"];
+    var actual = elements.PadWith(3, "");
+    Assert.That(actual, Is.EquivalentTo(new string[] { "A", "B", "" }));
   }
 }

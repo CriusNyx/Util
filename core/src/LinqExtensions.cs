@@ -24,4 +24,27 @@ public static class LinqExtensions
   {
     return new T[] { element }.Concat(then);
   }
+
+  public static IEnumerable<(T value, int index)> WithIndex<T>(this IEnumerable<T> values)
+  {
+    int index = 0;
+    foreach (var value in values)
+    {
+      yield return (value, index++);
+    }
+  }
+
+  public static IEnumerable<T> PadWith<T>(
+    this IEnumerable<T> values,
+    int length,
+    T element = default!
+  )
+  {
+    int count = values.Count();
+    if (count < length)
+    {
+      return values.Concat(Enumerable.Repeat(element, length - count));
+    }
+    return values;
+  }
 }
