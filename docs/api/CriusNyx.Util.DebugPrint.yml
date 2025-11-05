@@ -1,0 +1,1748 @@
+### YamlMime:ManagedReference
+items:
+- uid: CriusNyx.Util.DebugPrint
+  commentId: T:CriusNyx.Util.DebugPrint
+  id: DebugPrint
+  parent: CriusNyx.Util
+  children:
+  - CriusNyx.Util.DebugPrint.EnumerateFields
+  langs:
+  - csharp
+  - vb
+  name: DebugPrint
+  nameWithType: DebugPrint
+  fullName: CriusNyx.Util.DebugPrint
+  type: Interface
+  source:
+    remote:
+      path: core/src/PrintDebug.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: DebugPrint
+    path: ../core/src/PrintDebug.cs
+    startLine: 8
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: >-
+    Apply this interface to an object to added .Debug support to that object.
+
+    Otherwise .ToString will be used instead.
+  example: []
+  syntax:
+    content: public interface DebugPrint
+    content.vb: Public Interface DebugPrint
+  extensionMethods:
+  - CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.NotNull``1(System.String)
+  - CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.Touch``1(System.Action{CriusNyx.Util.DebugPrint})
+  - CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.Transform``2(System.Func{CriusNyx.Util.DebugPrint,{U}})
+  - CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.With``2({U})
+  - CriusNyx.Util.DebugPrint.CriusNyx.Util.LinqExtensions.AsArray``1
+  - CriusNyx.Util.DebugPrint.CriusNyx.Util.LinqExtensions.ThenConcat``1(System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint})
+  - CriusNyx.Util.DebugPrint.TreeExtensions.TraverseFlat``1(System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}},System.Int32)
+  - CriusNyx.Util.DebugPrint.TreeExtensions.Traverse``1(System.Action{CriusNyx.Util.DebugPrint,System.Int32},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+  - CriusNyx.Util.DebugPrint.TreeExtensions.Traverse``1(System.Action{CriusNyx.Util.DebugPrint},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+  - System.Object.CriusNyx.Util.DebugPrintExtensions.Debug
+  - System.Object.CriusNyx.Util.Extensions.AsNotNull``1(System.String)
+  - System.Object.CriusNyx.Util.Extensions.As``1
+- uid: CriusNyx.Util.DebugPrint.EnumerateFields
+  commentId: M:CriusNyx.Util.DebugPrint.EnumerateFields
+  id: EnumerateFields
+  parent: CriusNyx.Util.DebugPrint
+  langs:
+  - csharp
+  - vb
+  name: EnumerateFields()
+  nameWithType: DebugPrint.EnumerateFields()
+  fullName: CriusNyx.Util.DebugPrint.EnumerateFields()
+  type: Method
+  source:
+    remote:
+      path: core/src/PrintDebug.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: EnumerateFields
+    path: ../core/src/PrintDebug.cs
+    startLine: 14
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Should return a list of field names and their values so that they can be included in the .Debug output.
+  example: []
+  syntax:
+    content: IEnumerable<(string, object)> EnumerateFields()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}}
+      description: ''
+    content.vb: Function EnumerateFields() As IEnumerable(Of (String, Object))
+  overload: CriusNyx.Util.DebugPrint.EnumerateFields*
+references:
+- uid: CriusNyx.Util
+  commentId: N:CriusNyx.Util
+  href: CriusNyx.html
+  name: CriusNyx.Util
+  nameWithType: CriusNyx.Util
+  fullName: CriusNyx.Util
+  spec.csharp:
+  - uid: CriusNyx
+    name: CriusNyx
+    href: CriusNyx.html
+  - name: .
+  - uid: CriusNyx.Util
+    name: Util
+    href: CriusNyx.Util.html
+  spec.vb:
+  - uid: CriusNyx
+    name: CriusNyx
+    href: CriusNyx.html
+  - name: .
+  - uid: CriusNyx.Util
+    name: Util
+    href: CriusNyx.Util.html
+- uid: CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.NotNull``1(System.String)
+  commentId: M:CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  parent: CriusNyx.Util.Extensions
+  definition: CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  name: NotNull<DebugPrint>(DebugPrint, string)
+  nameWithType: Extensions.NotNull<DebugPrint>(DebugPrint, string)
+  fullName: CriusNyx.Util.Extensions.NotNull<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint, string)
+  nameWithType.vb: Extensions.NotNull(Of DebugPrint)(DebugPrint, String)
+  fullName.vb: CriusNyx.Util.Extensions.NotNull(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint, String)
+  name.vb: NotNull(Of DebugPrint)(DebugPrint, String)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.NotNull``1(CriusNyx.Util.DebugPrint,System.String)
+    name: NotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.NotNull``1(CriusNyx.Util.DebugPrint,System.String)
+    name: NotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.Touch``1(System.Action{CriusNyx.Util.DebugPrint})
+  commentId: M:CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  parent: CriusNyx.Util.Extensions
+  definition: CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  name: Touch<DebugPrint>(DebugPrint, Action<DebugPrint>)
+  nameWithType: Extensions.Touch<DebugPrint>(DebugPrint, Action<DebugPrint>)
+  fullName: CriusNyx.Util.Extensions.Touch<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint, System.Action<CriusNyx.Util.DebugPrint>)
+  nameWithType.vb: Extensions.Touch(Of DebugPrint)(DebugPrint, Action(Of DebugPrint))
+  fullName.vb: CriusNyx.Util.Extensions.Touch(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint, System.Action(Of CriusNyx.Util.DebugPrint))
+  name.vb: Touch(Of DebugPrint)(DebugPrint, Action(Of DebugPrint))
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.Touch``1(CriusNyx.Util.DebugPrint,System.Action{CriusNyx.Util.DebugPrint})
+    name: Touch
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.Touch``1(CriusNyx.Util.DebugPrint,System.Action{CriusNyx.Util.DebugPrint})
+    name: Touch
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.Transform``2(System.Func{CriusNyx.Util.DebugPrint,{U}})
+  commentId: M:CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  parent: CriusNyx.Util.Extensions
+  definition: CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  name: Transform<DebugPrint, U>(DebugPrint, Func<DebugPrint, U>)
+  nameWithType: Extensions.Transform<DebugPrint, U>(DebugPrint, Func<DebugPrint, U>)
+  fullName: CriusNyx.Util.Extensions.Transform<CriusNyx.Util.DebugPrint, U>(CriusNyx.Util.DebugPrint, System.Func<CriusNyx.Util.DebugPrint, U>)
+  nameWithType.vb: Extensions.Transform(Of DebugPrint, U)(DebugPrint, Func(Of DebugPrint, U))
+  fullName.vb: CriusNyx.Util.Extensions.Transform(Of CriusNyx.Util.DebugPrint, U)(CriusNyx.Util.DebugPrint, System.Func(Of CriusNyx.Util.DebugPrint, U))
+  name.vb: Transform(Of DebugPrint, U)(DebugPrint, Func(Of DebugPrint, U))
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.Transform``2(CriusNyx.Util.DebugPrint,System.Func{CriusNyx.Util.DebugPrint,``1})
+    name: Transform
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.Transform``2(CriusNyx.Util.DebugPrint,System.Func{CriusNyx.Util.DebugPrint,``1})
+    name: Transform
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.CriusNyx.Util.Extensions.With``2({U})
+  commentId: M:CriusNyx.Util.Extensions.With``2(``0,``1)
+  parent: CriusNyx.Util.Extensions
+  definition: CriusNyx.Util.Extensions.With``2(``0,``1)
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  name: With<DebugPrint, U>(DebugPrint, U)
+  nameWithType: Extensions.With<DebugPrint, U>(DebugPrint, U)
+  fullName: CriusNyx.Util.Extensions.With<CriusNyx.Util.DebugPrint, U>(CriusNyx.Util.DebugPrint, U)
+  nameWithType.vb: Extensions.With(Of DebugPrint, U)(DebugPrint, U)
+  fullName.vb: CriusNyx.Util.Extensions.With(Of CriusNyx.Util.DebugPrint, U)(CriusNyx.Util.DebugPrint, U)
+  name.vb: With(Of DebugPrint, U)(DebugPrint, U)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.With``2(CriusNyx.Util.DebugPrint,``1)
+    name: With
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.With``2(CriusNyx.Util.DebugPrint,``1)
+    name: With
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.CriusNyx.Util.LinqExtensions.AsArray``1
+  commentId: M:CriusNyx.Util.LinqExtensions.AsArray``1(``0)
+  parent: CriusNyx.Util.LinqExtensions
+  definition: CriusNyx.Util.LinqExtensions.AsArray``1(``0)
+  href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_AsArray__1___0_
+  name: AsArray<DebugPrint>(DebugPrint)
+  nameWithType: LinqExtensions.AsArray<DebugPrint>(DebugPrint)
+  fullName: CriusNyx.Util.LinqExtensions.AsArray<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint)
+  nameWithType.vb: LinqExtensions.AsArray(Of DebugPrint)(DebugPrint)
+  fullName.vb: CriusNyx.Util.LinqExtensions.AsArray(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint)
+  name.vb: AsArray(Of DebugPrint)(DebugPrint)
+  spec.csharp:
+  - uid: CriusNyx.Util.LinqExtensions.AsArray``1(CriusNyx.Util.DebugPrint)
+    name: AsArray
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_AsArray__1___0_
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.LinqExtensions.AsArray``1(CriusNyx.Util.DebugPrint)
+    name: AsArray
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_AsArray__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.CriusNyx.Util.LinqExtensions.ThenConcat``1(System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint})
+  commentId: M:CriusNyx.Util.LinqExtensions.ThenConcat``1(``0,System.Collections.Generic.IEnumerable{``0})
+  parent: CriusNyx.Util.LinqExtensions
+  definition: CriusNyx.Util.LinqExtensions.ThenConcat``1(``0,System.Collections.Generic.IEnumerable{``0})
+  href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_ThenConcat__1___0_System_Collections_Generic_IEnumerable___0__
+  name: ThenConcat<DebugPrint>(DebugPrint, IEnumerable<DebugPrint>)
+  nameWithType: LinqExtensions.ThenConcat<DebugPrint>(DebugPrint, IEnumerable<DebugPrint>)
+  fullName: CriusNyx.Util.LinqExtensions.ThenConcat<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable<CriusNyx.Util.DebugPrint>)
+  nameWithType.vb: LinqExtensions.ThenConcat(Of DebugPrint)(DebugPrint, IEnumerable(Of DebugPrint))
+  fullName.vb: CriusNyx.Util.LinqExtensions.ThenConcat(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable(Of CriusNyx.Util.DebugPrint))
+  name.vb: ThenConcat(Of DebugPrint)(DebugPrint, IEnumerable(Of DebugPrint))
+  spec.csharp:
+  - uid: CriusNyx.Util.LinqExtensions.ThenConcat``1(CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint})
+    name: ThenConcat
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_ThenConcat__1___0_System_Collections_Generic_IEnumerable___0__
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.LinqExtensions.ThenConcat``1(CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint})
+    name: ThenConcat
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_ThenConcat__1___0_System_Collections_Generic_IEnumerable___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.TreeExtensions.TraverseFlat``1(System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}},System.Int32)
+  commentId: M:TreeExtensions.TraverseFlat``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Int32)
+  parent: TreeExtensions
+  definition: TreeExtensions.TraverseFlat``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Int32)
+  href: TreeExtensions.html#TreeExtensions_TraverseFlat__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___System_Int32_
+  name: TraverseFlat<DebugPrint>(DebugPrint, Func<DebugPrint, IEnumerable<DebugPrint>>, int)
+  nameWithType: TreeExtensions.TraverseFlat<DebugPrint>(DebugPrint, Func<DebugPrint, IEnumerable<DebugPrint>>, int)
+  fullName: TreeExtensions.TraverseFlat<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint, System.Func<CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable<CriusNyx.Util.DebugPrint>>, int)
+  nameWithType.vb: TreeExtensions.TraverseFlat(Of DebugPrint)(DebugPrint, Func(Of DebugPrint, IEnumerable(Of DebugPrint)), Integer)
+  fullName.vb: TreeExtensions.TraverseFlat(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint, System.Func(Of CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable(Of CriusNyx.Util.DebugPrint)), Integer)
+  name.vb: TraverseFlat(Of DebugPrint)(DebugPrint, Func(Of DebugPrint, IEnumerable(Of DebugPrint)), Integer)
+  spec.csharp:
+  - uid: TreeExtensions.TraverseFlat``1(CriusNyx.Util.DebugPrint,System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}},System.Int32)
+    name: TraverseFlat
+    href: TreeExtensions.html#TreeExtensions_TraverseFlat__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___System_Int32_
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: TreeExtensions.TraverseFlat``1(CriusNyx.Util.DebugPrint,System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}},System.Int32)
+    name: TraverseFlat
+    href: TreeExtensions.html#TreeExtensions_TraverseFlat__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.TreeExtensions.Traverse``1(System.Action{CriusNyx.Util.DebugPrint,System.Int32},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+  commentId: M:TreeExtensions.Traverse``1(``0,System.Action{``0,System.Int32},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  parent: TreeExtensions
+  definition: TreeExtensions.Traverse``1(``0,System.Action{``0,System.Int32},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0_System_Int32__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  name: Traverse<DebugPrint>(DebugPrint, Action<DebugPrint, int>, Func<DebugPrint, IEnumerable<DebugPrint>>)
+  nameWithType: TreeExtensions.Traverse<DebugPrint>(DebugPrint, Action<DebugPrint, int>, Func<DebugPrint, IEnumerable<DebugPrint>>)
+  fullName: TreeExtensions.Traverse<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint, System.Action<CriusNyx.Util.DebugPrint, int>, System.Func<CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable<CriusNyx.Util.DebugPrint>>)
+  nameWithType.vb: TreeExtensions.Traverse(Of DebugPrint)(DebugPrint, Action(Of DebugPrint, Integer), Func(Of DebugPrint, IEnumerable(Of DebugPrint)))
+  fullName.vb: TreeExtensions.Traverse(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint, System.Action(Of CriusNyx.Util.DebugPrint, Integer), System.Func(Of CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable(Of CriusNyx.Util.DebugPrint)))
+  name.vb: Traverse(Of DebugPrint)(DebugPrint, Action(Of DebugPrint, Integer), Func(Of DebugPrint, IEnumerable(Of DebugPrint)))
+  spec.csharp:
+  - uid: TreeExtensions.Traverse``1(CriusNyx.Util.DebugPrint,System.Action{CriusNyx.Util.DebugPrint,System.Int32},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0_System_Int32__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: TreeExtensions.Traverse``1(CriusNyx.Util.DebugPrint,System.Action{CriusNyx.Util.DebugPrint,System.Int32},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0_System_Int32__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.TreeExtensions.Traverse``1(System.Action{CriusNyx.Util.DebugPrint},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+  commentId: M:TreeExtensions.Traverse``1(``0,System.Action{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  parent: TreeExtensions
+  definition: TreeExtensions.Traverse``1(``0,System.Action{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  name: Traverse<DebugPrint>(DebugPrint, Action<DebugPrint>, Func<DebugPrint, IEnumerable<DebugPrint>>)
+  nameWithType: TreeExtensions.Traverse<DebugPrint>(DebugPrint, Action<DebugPrint>, Func<DebugPrint, IEnumerable<DebugPrint>>)
+  fullName: TreeExtensions.Traverse<CriusNyx.Util.DebugPrint>(CriusNyx.Util.DebugPrint, System.Action<CriusNyx.Util.DebugPrint>, System.Func<CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable<CriusNyx.Util.DebugPrint>>)
+  nameWithType.vb: TreeExtensions.Traverse(Of DebugPrint)(DebugPrint, Action(Of DebugPrint), Func(Of DebugPrint, IEnumerable(Of DebugPrint)))
+  fullName.vb: TreeExtensions.Traverse(Of CriusNyx.Util.DebugPrint)(CriusNyx.Util.DebugPrint, System.Action(Of CriusNyx.Util.DebugPrint), System.Func(Of CriusNyx.Util.DebugPrint, System.Collections.Generic.IEnumerable(Of CriusNyx.Util.DebugPrint)))
+  name.vb: Traverse(Of DebugPrint)(DebugPrint, Action(Of DebugPrint), Func(Of DebugPrint, IEnumerable(Of DebugPrint)))
+  spec.csharp:
+  - uid: TreeExtensions.Traverse``1(CriusNyx.Util.DebugPrint,System.Action{CriusNyx.Util.DebugPrint},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: TreeExtensions.Traverse``1(CriusNyx.Util.DebugPrint,System.Action{CriusNyx.Util.DebugPrint},System.Func{CriusNyx.Util.DebugPrint,System.Collections.Generic.IEnumerable{CriusNyx.Util.DebugPrint}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: (
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CriusNyx.Util.DebugPrint
+    name: DebugPrint
+    href: CriusNyx.Util.DebugPrint.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Object.CriusNyx.Util.DebugPrintExtensions.Debug
+  commentId: M:CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+  parent: CriusNyx.Util.DebugPrintExtensions
+  definition: CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+  href: CriusNyx.Util.DebugPrintExtensions.html#CriusNyx_Util_DebugPrintExtensions_Debug_System_Object_
+  name: Debug(object)
+  nameWithType: DebugPrintExtensions.Debug(object)
+  fullName: CriusNyx.Util.DebugPrintExtensions.Debug(object)
+  nameWithType.vb: DebugPrintExtensions.Debug(Object)
+  fullName.vb: CriusNyx.Util.DebugPrintExtensions.Debug(Object)
+  name.vb: Debug(Object)
+  spec.csharp:
+  - uid: CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+    name: Debug
+    href: CriusNyx.Util.DebugPrintExtensions.html#CriusNyx_Util_DebugPrintExtensions_Debug_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+    name: Debug
+    href: CriusNyx.Util.DebugPrintExtensions.html#CriusNyx_Util_DebugPrintExtensions_Debug_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.CriusNyx.Util.Extensions.AsNotNull``1(System.String)
+  commentId: M:CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  parent: CriusNyx.Util.Extensions
+  definition: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  name: AsNotNull<T>(object, string)
+  nameWithType: Extensions.AsNotNull<T>(object, string)
+  fullName: CriusNyx.Util.Extensions.AsNotNull<T>(object, string)
+  nameWithType.vb: Extensions.AsNotNull(Of T)(Object, String)
+  fullName.vb: CriusNyx.Util.Extensions.AsNotNull(Of T)(Object, String)
+  name.vb: AsNotNull(Of T)(Object, String)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+    name: AsNotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+    name: AsNotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Object.CriusNyx.Util.Extensions.As``1
+  commentId: M:CriusNyx.Util.Extensions.As``1(System.Object)
+  parent: CriusNyx.Util.Extensions
+  definition: CriusNyx.Util.Extensions.As``1(System.Object)
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  name: As<T>(object)
+  nameWithType: Extensions.As<T>(object)
+  fullName: CriusNyx.Util.Extensions.As<T>(object)
+  nameWithType.vb: Extensions.As(Of T)(Object)
+  fullName.vb: CriusNyx.Util.Extensions.As(Of T)(Object)
+  name.vb: As(Of T)(Object)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.As``1(System.Object)
+    name: As
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.As``1(System.Object)
+    name: As
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  commentId: M:CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  isExternal: true
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  name: NotNull<T>(T, string)
+  nameWithType: Extensions.NotNull<T>(T, string)
+  fullName: CriusNyx.Util.Extensions.NotNull<T>(T, string)
+  nameWithType.vb: Extensions.NotNull(Of T)(T, String)
+  fullName.vb: CriusNyx.Util.Extensions.NotNull(Of T)(T, String)
+  name.vb: NotNull(Of T)(T, String)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+    name: NotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+    name: NotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: CriusNyx.Util.Extensions
+  commentId: T:CriusNyx.Util.Extensions
+  parent: CriusNyx.Util
+  href: CriusNyx.Util.Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: CriusNyx.Util.Extensions
+- uid: CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  commentId: M:CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  isExternal: true
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  name: Touch<T>(T, Action<T>)
+  nameWithType: Extensions.Touch<T>(T, Action<T>)
+  fullName: CriusNyx.Util.Extensions.Touch<T>(T, System.Action<T>)
+  nameWithType.vb: Extensions.Touch(Of T)(T, Action(Of T))
+  fullName.vb: CriusNyx.Util.Extensions.Touch(Of T)(T, System.Action(Of T))
+  name.vb: Touch(Of T)(T, Action(Of T))
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+    name: Touch
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+    name: Touch
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  commentId: M:CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  isExternal: true
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  name: Transform<T, U>(T, Func<T, U>)
+  nameWithType: Extensions.Transform<T, U>(T, Func<T, U>)
+  fullName: CriusNyx.Util.Extensions.Transform<T, U>(T, System.Func<T, U>)
+  nameWithType.vb: Extensions.Transform(Of T, U)(T, Func(Of T, U))
+  fullName.vb: CriusNyx.Util.Extensions.Transform(Of T, U)(T, System.Func(Of T, U))
+  name.vb: Transform(Of T, U)(T, Func(Of T, U))
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+    name: Transform
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+    name: Transform
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.Extensions.With``2(``0,``1)
+  commentId: M:CriusNyx.Util.Extensions.With``2(``0,``1)
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  name: With<T, U>(T, U)
+  nameWithType: Extensions.With<T, U>(T, U)
+  fullName: CriusNyx.Util.Extensions.With<T, U>(T, U)
+  nameWithType.vb: Extensions.With(Of T, U)(T, U)
+  fullName.vb: CriusNyx.Util.Extensions.With(Of T, U)(T, U)
+  name.vb: With(Of T, U)(T, U)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.With``2(``0,``1)
+    name: With
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.With``2(``0,``1)
+    name: With
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+- uid: CriusNyx.Util.LinqExtensions.AsArray``1(``0)
+  commentId: M:CriusNyx.Util.LinqExtensions.AsArray``1(``0)
+  href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_AsArray__1___0_
+  name: AsArray<T>(T)
+  nameWithType: LinqExtensions.AsArray<T>(T)
+  fullName: CriusNyx.Util.LinqExtensions.AsArray<T>(T)
+  nameWithType.vb: LinqExtensions.AsArray(Of T)(T)
+  fullName.vb: CriusNyx.Util.LinqExtensions.AsArray(Of T)(T)
+  name.vb: AsArray(Of T)(T)
+  spec.csharp:
+  - uid: CriusNyx.Util.LinqExtensions.AsArray``1(``0)
+    name: AsArray
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_AsArray__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.LinqExtensions.AsArray``1(``0)
+    name: AsArray
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_AsArray__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: CriusNyx.Util.LinqExtensions
+  commentId: T:CriusNyx.Util.LinqExtensions
+  parent: CriusNyx.Util
+  href: CriusNyx.Util.LinqExtensions.html
+  name: LinqExtensions
+  nameWithType: LinqExtensions
+  fullName: CriusNyx.Util.LinqExtensions
+- uid: CriusNyx.Util.LinqExtensions.ThenConcat``1(``0,System.Collections.Generic.IEnumerable{``0})
+  commentId: M:CriusNyx.Util.LinqExtensions.ThenConcat``1(``0,System.Collections.Generic.IEnumerable{``0})
+  isExternal: true
+  href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_ThenConcat__1___0_System_Collections_Generic_IEnumerable___0__
+  name: ThenConcat<T>(T, IEnumerable<T>)
+  nameWithType: LinqExtensions.ThenConcat<T>(T, IEnumerable<T>)
+  fullName: CriusNyx.Util.LinqExtensions.ThenConcat<T>(T, System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: LinqExtensions.ThenConcat(Of T)(T, IEnumerable(Of T))
+  fullName.vb: CriusNyx.Util.LinqExtensions.ThenConcat(Of T)(T, System.Collections.Generic.IEnumerable(Of T))
+  name.vb: ThenConcat(Of T)(T, IEnumerable(Of T))
+  spec.csharp:
+  - uid: CriusNyx.Util.LinqExtensions.ThenConcat``1(``0,System.Collections.Generic.IEnumerable{``0})
+    name: ThenConcat
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_ThenConcat__1___0_System_Collections_Generic_IEnumerable___0__
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.LinqExtensions.ThenConcat``1(``0,System.Collections.Generic.IEnumerable{``0})
+    name: ThenConcat
+    href: CriusNyx.Util.LinqExtensions.html#CriusNyx_Util_LinqExtensions_ThenConcat__1___0_System_Collections_Generic_IEnumerable___0__
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: TreeExtensions.TraverseFlat``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Int32)
+  commentId: M:TreeExtensions.TraverseFlat``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Int32)
+  isExternal: true
+  href: TreeExtensions.html#TreeExtensions_TraverseFlat__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___System_Int32_
+  name: TraverseFlat<T>(T, Func<T, IEnumerable<T>>, int)
+  nameWithType: TreeExtensions.TraverseFlat<T>(T, Func<T, IEnumerable<T>>, int)
+  fullName: TreeExtensions.TraverseFlat<T>(T, System.Func<T, System.Collections.Generic.IEnumerable<T>>, int)
+  nameWithType.vb: TreeExtensions.TraverseFlat(Of T)(T, Func(Of T, IEnumerable(Of T)), Integer)
+  fullName.vb: TreeExtensions.TraverseFlat(Of T)(T, System.Func(Of T, System.Collections.Generic.IEnumerable(Of T)), Integer)
+  name.vb: TraverseFlat(Of T)(T, Func(Of T, IEnumerable(Of T)), Integer)
+  spec.csharp:
+  - uid: TreeExtensions.TraverseFlat``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Int32)
+    name: TraverseFlat
+    href: TreeExtensions.html#TreeExtensions_TraverseFlat__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___System_Int32_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: TreeExtensions.TraverseFlat``1(``0,System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Int32)
+    name: TraverseFlat
+    href: TreeExtensions.html#TreeExtensions_TraverseFlat__1___0_System_Func___0_System_Collections_Generic_IEnumerable___0___System_Int32_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: TreeExtensions
+  commentId: T:TreeExtensions
+  href: TreeExtensions.html
+  name: TreeExtensions
+  nameWithType: TreeExtensions
+  fullName: TreeExtensions
+- uid: TreeExtensions.Traverse``1(``0,System.Action{``0,System.Int32},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:TreeExtensions.Traverse``1(``0,System.Action{``0,System.Int32},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  isExternal: true
+  href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0_System_Int32__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  name: Traverse<T>(T, Action<T, int>, Func<T, IEnumerable<T>>)
+  nameWithType: TreeExtensions.Traverse<T>(T, Action<T, int>, Func<T, IEnumerable<T>>)
+  fullName: TreeExtensions.Traverse<T>(T, System.Action<T, int>, System.Func<T, System.Collections.Generic.IEnumerable<T>>)
+  nameWithType.vb: TreeExtensions.Traverse(Of T)(T, Action(Of T, Integer), Func(Of T, IEnumerable(Of T)))
+  fullName.vb: TreeExtensions.Traverse(Of T)(T, System.Action(Of T, Integer), System.Func(Of T, System.Collections.Generic.IEnumerable(Of T)))
+  name.vb: Traverse(Of T)(T, Action(Of T, Integer), Func(Of T, IEnumerable(Of T)))
+  spec.csharp:
+  - uid: TreeExtensions.Traverse``1(``0,System.Action{``0,System.Int32},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0_System_Int32__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: TreeExtensions.Traverse``1(``0,System.Action{``0,System.Int32},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0_System_Int32__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: )
+- uid: TreeExtensions.Traverse``1(``0,System.Action{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  commentId: M:TreeExtensions.Traverse``1(``0,System.Action{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+  isExternal: true
+  href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  name: Traverse<T>(T, Action<T>, Func<T, IEnumerable<T>>)
+  nameWithType: TreeExtensions.Traverse<T>(T, Action<T>, Func<T, IEnumerable<T>>)
+  fullName: TreeExtensions.Traverse<T>(T, System.Action<T>, System.Func<T, System.Collections.Generic.IEnumerable<T>>)
+  nameWithType.vb: TreeExtensions.Traverse(Of T)(T, Action(Of T), Func(Of T, IEnumerable(Of T)))
+  fullName.vb: TreeExtensions.Traverse(Of T)(T, System.Action(Of T), System.Func(Of T, System.Collections.Generic.IEnumerable(Of T)))
+  name.vb: Traverse(Of T)(T, Action(Of T), Func(Of T, IEnumerable(Of T)))
+  spec.csharp:
+  - uid: TreeExtensions.Traverse``1(``0,System.Action{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: TreeExtensions.Traverse``1(``0,System.Action{``0},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})
+    name: Traverse
+    href: TreeExtensions.html#TreeExtensions_Traverse__1___0_System_Action___0__System_Func___0_System_Collections_Generic_IEnumerable___0___
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: )
+- uid: CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+  commentId: M:CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+  isExternal: true
+  href: CriusNyx.Util.DebugPrintExtensions.html#CriusNyx_Util_DebugPrintExtensions_Debug_System_Object_
+  name: Debug(object)
+  nameWithType: DebugPrintExtensions.Debug(object)
+  fullName: CriusNyx.Util.DebugPrintExtensions.Debug(object)
+  nameWithType.vb: DebugPrintExtensions.Debug(Object)
+  fullName.vb: CriusNyx.Util.DebugPrintExtensions.Debug(Object)
+  name.vb: Debug(Object)
+  spec.csharp:
+  - uid: CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+    name: Debug
+    href: CriusNyx.Util.DebugPrintExtensions.html#CriusNyx_Util_DebugPrintExtensions_Debug_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.DebugPrintExtensions.Debug(System.Object)
+    name: Debug
+    href: CriusNyx.Util.DebugPrintExtensions.html#CriusNyx_Util_DebugPrintExtensions_Debug_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: CriusNyx.Util.DebugPrintExtensions
+  commentId: T:CriusNyx.Util.DebugPrintExtensions
+  parent: CriusNyx.Util
+  href: CriusNyx.Util.DebugPrintExtensions.html
+  name: DebugPrintExtensions
+  nameWithType: DebugPrintExtensions
+  fullName: CriusNyx.Util.DebugPrintExtensions
+- uid: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  commentId: M:CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  isExternal: true
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  name: AsNotNull<T>(object, string)
+  nameWithType: Extensions.AsNotNull<T>(object, string)
+  fullName: CriusNyx.Util.Extensions.AsNotNull<T>(object, string)
+  nameWithType.vb: Extensions.AsNotNull(Of T)(Object, String)
+  fullName.vb: CriusNyx.Util.Extensions.AsNotNull(Of T)(Object, String)
+  name.vb: AsNotNull(Of T)(Object, String)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+    name: AsNotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+    name: AsNotNull
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: CriusNyx.Util.Extensions.As``1(System.Object)
+  commentId: M:CriusNyx.Util.Extensions.As``1(System.Object)
+  isExternal: true
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  name: As<T>(object)
+  nameWithType: Extensions.As<T>(object)
+  fullName: CriusNyx.Util.Extensions.As<T>(object)
+  nameWithType.vb: Extensions.As(Of T)(Object)
+  fullName.vb: CriusNyx.Util.Extensions.As(Of T)(Object)
+  name.vb: As(Of T)(Object)
+  spec.csharp:
+  - uid: CriusNyx.Util.Extensions.As``1(System.Object)
+    name: As
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: CriusNyx.Util.Extensions.As``1(System.Object)
+    name: As
+    href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: CriusNyx.Util.DebugPrint.EnumerateFields*
+  commentId: Overload:CriusNyx.Util.DebugPrint.EnumerateFields
+  href: CriusNyx.Util.DebugPrint.html#CriusNyx_Util_DebugPrint_EnumerateFields
+  name: EnumerateFields
+  nameWithType: DebugPrint.EnumerateFields
+  fullName: CriusNyx.Util.DebugPrint.EnumerateFields
+- uid: System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.ValueTuple{System.String,System.Object}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<(string, object)>
+  nameWithType: IEnumerable<(string, object)>
+  fullName: System.Collections.Generic.IEnumerable<(string, object)>
+  nameWithType.vb: IEnumerable(Of (String, Object))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of (String, Object))
+  name.vb: IEnumerable(Of (String, Object))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

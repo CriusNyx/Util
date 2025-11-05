@@ -1,0 +1,1409 @@
+### YamlMime:ManagedReference
+items:
+- uid: CriusNyx.Util.Extensions
+  commentId: T:CriusNyx.Util.Extensions
+  id: Extensions
+  parent: CriusNyx.Util
+  children:
+  - CriusNyx.Util.Extensions.AndWith``3(System.ValueTuple{``0,``1},``2)
+  - CriusNyx.Util.Extensions.AndWith``4(System.ValueTuple{``0,``1,``2},``3)
+  - CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  - CriusNyx.Util.Extensions.As``1(System.Object)
+  - CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  - CriusNyx.Util.Extensions.Safe``1(System.Collections.Generic.IList{``0},System.Int32)
+  - CriusNyx.Util.Extensions.Safe``1(``0[],System.Int32)
+  - CriusNyx.Util.Extensions.Safe``2(System.Collections.Generic.IDictionary{``0,``1},``0)
+  - CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  - CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  - CriusNyx.Util.Extensions.With``2(``0,``1)
+  langs:
+  - csharp
+  - vb
+  name: Extensions
+  nameWithType: Extensions
+  fullName: CriusNyx.Util.Extensions
+  type: Class
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: Extensions
+    path: ../core/src/Extensions.cs
+    startLine: 5
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Extensions for manipulating ordinary objects.
+  example: []
+  syntax:
+    content: public static class Extensions
+    content.vb: Public Module Extensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: CriusNyx.Util.Extensions.As``1(System.Object)
+  commentId: M:CriusNyx.Util.Extensions.As``1(System.Object)
+  id: As``1(System.Object)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: As<T>(object)
+  nameWithType: Extensions.As<T>(object)
+  fullName: CriusNyx.Util.Extensions.As<T>(object)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: As
+    path: ../core/src/Extensions.cs
+    startLine: 13
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Cast the element to the specified type T or return the default T otherwise.
+  example: []
+  syntax:
+    content: public static T? As<T>(this object value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Shared Function [As](Of T)(value As Object) As T
+  overload: CriusNyx.Util.Extensions.As*
+  nameWithType.vb: Extensions.As(Of T)(Object)
+  fullName.vb: CriusNyx.Util.Extensions.As(Of T)(Object)
+  name.vb: As(Of T)(Object)
+- uid: CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  commentId: M:CriusNyx.Util.Extensions.AsNotNull``1(System.Object,System.String)
+  id: AsNotNull``1(System.Object,System.String)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: AsNotNull<T>(object, string?)
+  nameWithType: Extensions.AsNotNull<T>(object, string?)
+  fullName: CriusNyx.Util.Extensions.AsNotNull<T>(object, string?)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: AsNotNull
+    path: ../core/src/Extensions.cs
+    startLine: 30
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: >-
+    Convert value to T and assert that it's not null. Throws an exception otherwise.
+
+    Lets you generate a null reference stack trace at the point of assignment rather then when dereferenced.
+  example: []
+  syntax:
+    content: public static T AsNotNull<T>(this object value, string? fieldName = null)
+    parameters:
+    - id: value
+      type: System.Object
+      description: ''
+    - id: fieldName
+      type: System.String
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Shared Function AsNotNull(Of T)(value As Object, fieldName As String = Nothing) As T
+  overload: CriusNyx.Util.Extensions.AsNotNull*
+  nameWithType.vb: Extensions.AsNotNull(Of T)(Object, String)
+  fullName.vb: CriusNyx.Util.Extensions.AsNotNull(Of T)(Object, String)
+  name.vb: AsNotNull(Of T)(Object, String)
+- uid: CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  commentId: M:CriusNyx.Util.Extensions.NotNull``1(``0,System.String)
+  id: NotNull``1(``0,System.String)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: NotNull<T>(T?, string?)
+  nameWithType: Extensions.NotNull<T>(T?, string?)
+  fullName: CriusNyx.Util.Extensions.NotNull<T>(T?, string?)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: NotNull
+    path: ../core/src/Extensions.cs
+    startLine: 44
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: >-
+    Assert that the object is not null, and throw an exception if it is.
+
+    Lets you generate a null reference stack trace at the point of assignment rather then when dereferenced.
+  example: []
+  syntax:
+    content: public static T NotNull<T>(this T? value, string? fieldName = null)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: ''
+    - id: fieldName
+      type: System.String
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Shared Function NotNull(Of T)(value As T, fieldName As String = Nothing) As T
+  overload: CriusNyx.Util.Extensions.NotNull*
+  exceptions:
+  - type: System.NullReferenceException
+    commentId: T:System.NullReferenceException
+    description: ''
+  nameWithType.vb: Extensions.NotNull(Of T)(T, String)
+  fullName.vb: CriusNyx.Util.Extensions.NotNull(Of T)(T, String)
+  name.vb: NotNull(Of T)(T, String)
+- uid: CriusNyx.Util.Extensions.With``2(``0,``1)
+  commentId: M:CriusNyx.Util.Extensions.With``2(``0,``1)
+  id: With``2(``0,``1)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: With<T, U>(T, U)
+  nameWithType: Extensions.With<T, U>(T, U)
+  fullName: CriusNyx.Util.Extensions.With<T, U>(T, U)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: With
+    path: ../core/src/Extensions.cs
+    startLine: 68
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Create a tuple with the this element and the other element.
+  example: []
+  syntax:
+    content: public static (T, U) With<T, U>(this T value, U other)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: ''
+    - id: other
+      type: '{U}'
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    - id: U
+      description: ''
+    return:
+      type: System.ValueTuple{{T},{U}}
+      description: ''
+    content.vb: Public Shared Function [With](Of T, U)(value As T, other As U) As (T, U)
+  overload: CriusNyx.Util.Extensions.With*
+  nameWithType.vb: Extensions.With(Of T, U)(T, U)
+  fullName.vb: CriusNyx.Util.Extensions.With(Of T, U)(T, U)
+  name.vb: With(Of T, U)(T, U)
+- uid: CriusNyx.Util.Extensions.AndWith``3(System.ValueTuple{``0,``1},``2)
+  commentId: M:CriusNyx.Util.Extensions.AndWith``3(System.ValueTuple{``0,``1},``2)
+  id: AndWith``3(System.ValueTuple{``0,``1},``2)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: AndWith<T, U, V>((T, U), V)
+  nameWithType: Extensions.AndWith<T, U, V>((T, U), V)
+  fullName: CriusNyx.Util.Extensions.AndWith<T, U, V>((T, U), V)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: AndWith
+    path: ../core/src/Extensions.cs
+    startLine: 82
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Extend a tuple with an additional element.
+  example: []
+  syntax:
+    content: public static (T, U, V) AndWith<T, U, V>(this (T, U) value, V other)
+    parameters:
+    - id: value
+      type: System.ValueTuple{{T},{U}}
+      description: ''
+    - id: other
+      type: '{V}'
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    - id: U
+      description: ''
+    - id: V
+      description: ''
+    return:
+      type: System.ValueTuple{{T},{U},{V}}
+      description: ''
+    content.vb: Public Shared Function AndWith(Of T, U, V)(value As (T, U), other As V) As (T, U, V)
+  overload: CriusNyx.Util.Extensions.AndWith*
+  nameWithType.vb: Extensions.AndWith(Of T, U, V)((T, U), V)
+  fullName.vb: CriusNyx.Util.Extensions.AndWith(Of T, U, V)((T, U), V)
+  name.vb: AndWith(Of T, U, V)((T, U), V)
+- uid: CriusNyx.Util.Extensions.AndWith``4(System.ValueTuple{``0,``1,``2},``3)
+  commentId: M:CriusNyx.Util.Extensions.AndWith``4(System.ValueTuple{``0,``1,``2},``3)
+  id: AndWith``4(System.ValueTuple{``0,``1,``2},``3)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: AndWith<T, U, V, W>((T, U, V), W)
+  nameWithType: Extensions.AndWith<T, U, V, W>((T, U, V), W)
+  fullName: CriusNyx.Util.Extensions.AndWith<T, U, V, W>((T, U, V), W)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: AndWith
+    path: ../core/src/Extensions.cs
+    startLine: 97
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Extend a tuple with an additional element.
+  example: []
+  syntax:
+    content: public static (T, U, V, W) AndWith<T, U, V, W>(this (T, U, V) value, W other)
+    parameters:
+    - id: value
+      type: System.ValueTuple{{T},{U},{V}}
+      description: ''
+    - id: other
+      type: '{W}'
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    - id: U
+      description: ''
+    - id: V
+      description: ''
+    - id: W
+      description: ''
+    return:
+      type: System.ValueTuple{{T},{U},{V},{W}}
+      description: ''
+    content.vb: Public Shared Function AndWith(Of T, U, V, W)(value As (T, U, V), other As W) As (T, U, V, W)
+  overload: CriusNyx.Util.Extensions.AndWith*
+  nameWithType.vb: Extensions.AndWith(Of T, U, V, W)((T, U, V), W)
+  fullName.vb: CriusNyx.Util.Extensions.AndWith(Of T, U, V, W)((T, U, V), W)
+  name.vb: AndWith(Of T, U, V, W)((T, U, V), W)
+- uid: CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  commentId: M:CriusNyx.Util.Extensions.Touch``1(``0,System.Action{``0})
+  id: Touch``1(``0,System.Action{``0})
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: Touch<T>(T, Action<T>)
+  nameWithType: Extensions.Touch<T>(T, Action<T>)
+  fullName: CriusNyx.Util.Extensions.Touch<T>(T, System.Action<T>)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: Touch
+    path: ../core/src/Extensions.cs
+    startLine: 109
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Perform some action with the this object and then return that same object.
+  example: []
+  syntax:
+    content: public static T Touch<T>(this T element, Action<T> action)
+    parameters:
+    - id: element
+      type: '{T}'
+      description: ''
+    - id: action
+      type: System.Action{{T}}
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Shared Function Touch(Of T)(element As T, action As Action(Of T)) As T
+  overload: CriusNyx.Util.Extensions.Touch*
+  nameWithType.vb: Extensions.Touch(Of T)(T, Action(Of T))
+  fullName.vb: CriusNyx.Util.Extensions.Touch(Of T)(T, System.Action(Of T))
+  name.vb: Touch(Of T)(T, Action(Of T))
+- uid: CriusNyx.Util.Extensions.Safe``1(``0[],System.Int32)
+  commentId: M:CriusNyx.Util.Extensions.Safe``1(``0[],System.Int32)
+  id: Safe``1(``0[],System.Int32)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: Safe<T>(T[], int)
+  nameWithType: Extensions.Safe<T>(T[], int)
+  fullName: CriusNyx.Util.Extensions.Safe<T>(T[], int)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: Safe
+    path: ../core/src/Extensions.cs
+    startLine: 122
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Derefernce an element from the array or return the default value for that type if the index is outside the array.
+  example: []
+  syntax:
+    content: public static T? Safe<T>(this T[] arr, int index)
+    parameters:
+    - id: arr
+      type: '{T}[]'
+      description: ''
+    - id: index
+      type: System.Int32
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Shared Function Safe(Of T)(arr As T(), index As Integer) As T
+  overload: CriusNyx.Util.Extensions.Safe*
+  nameWithType.vb: Extensions.Safe(Of T)(T(), Integer)
+  fullName.vb: CriusNyx.Util.Extensions.Safe(Of T)(T(), Integer)
+  name.vb: Safe(Of T)(T(), Integer)
+- uid: CriusNyx.Util.Extensions.Safe``1(System.Collections.Generic.IList{``0},System.Int32)
+  commentId: M:CriusNyx.Util.Extensions.Safe``1(System.Collections.Generic.IList{``0},System.Int32)
+  id: Safe``1(System.Collections.Generic.IList{``0},System.Int32)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: Safe<T>(IList<T>, int)
+  nameWithType: Extensions.Safe<T>(IList<T>, int)
+  fullName: CriusNyx.Util.Extensions.Safe<T>(System.Collections.Generic.IList<T>, int)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: Safe
+    path: ../core/src/Extensions.cs
+    startLine: 138
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Dereference an element from the list or return the default value for the type if the index is outside the list.
+  example: []
+  syntax:
+    content: public static T? Safe<T>(this IList<T> list, int index)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.IList{{T}}
+      description: ''
+    - id: index
+      type: System.Int32
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Shared Function Safe(Of T)(list As IList(Of T), index As Integer) As T
+  overload: CriusNyx.Util.Extensions.Safe*
+  nameWithType.vb: Extensions.Safe(Of T)(IList(Of T), Integer)
+  fullName.vb: CriusNyx.Util.Extensions.Safe(Of T)(System.Collections.Generic.IList(Of T), Integer)
+  name.vb: Safe(Of T)(IList(Of T), Integer)
+- uid: CriusNyx.Util.Extensions.Safe``2(System.Collections.Generic.IDictionary{``0,``1},``0)
+  commentId: M:CriusNyx.Util.Extensions.Safe``2(System.Collections.Generic.IDictionary{``0,``1},``0)
+  id: Safe``2(System.Collections.Generic.IDictionary{``0,``1},``0)
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: Safe<T, U>(IDictionary<T, U>, T)
+  nameWithType: Extensions.Safe<T, U>(IDictionary<T, U>, T)
+  fullName: CriusNyx.Util.Extensions.Safe<T, U>(System.Collections.Generic.IDictionary<T, U>, T)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: Safe
+    path: ../core/src/Extensions.cs
+    startLine: 155
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Dereference an element form the dictionary or return the default value for the type if the key is not in the dictionary.
+  example: []
+  syntax:
+    content: public static U? Safe<T, U>(this IDictionary<T, U> dict, T key)
+    parameters:
+    - id: dict
+      type: System.Collections.Generic.IDictionary{{T},{U}}
+      description: ''
+    - id: key
+      type: '{T}'
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    - id: U
+      description: ''
+    return:
+      type: '{U}'
+      description: ''
+    content.vb: Public Shared Function Safe(Of T, U)(dict As IDictionary(Of T, U), key As T) As U
+  overload: CriusNyx.Util.Extensions.Safe*
+  nameWithType.vb: Extensions.Safe(Of T, U)(IDictionary(Of T, U), T)
+  fullName.vb: CriusNyx.Util.Extensions.Safe(Of T, U)(System.Collections.Generic.IDictionary(Of T, U), T)
+  name.vb: Safe(Of T, U)(IDictionary(Of T, U), T)
+- uid: CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  commentId: M:CriusNyx.Util.Extensions.Transform``2(``0,System.Func{``0,``1})
+  id: Transform``2(``0,System.Func{``0,``1})
+  isExtensionMethod: true
+  parent: CriusNyx.Util.Extensions
+  langs:
+  - csharp
+  - vb
+  name: Transform<T, U>(T, Func<T, U>)
+  nameWithType: Extensions.Transform<T, U>(T, Func<T, U>)
+  fullName: CriusNyx.Util.Extensions.Transform<T, U>(T, System.Func<T, U>)
+  type: Method
+  source:
+    remote:
+      path: core/src/Extensions.cs
+      branch: main
+      repo: git@github.com:CriusNyx/Util.git
+    id: Transform
+    path: ../core/src/Extensions.cs
+    startLine: 172
+  assemblies:
+  - CriusNyxUtil
+  namespace: CriusNyx.Util
+  summary: Convert the element to a new element.
+  example: []
+  syntax:
+    content: public static U Transform<T, U>(this T value, Func<T, U> transformation)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: ''
+    - id: transformation
+      type: System.Func{{T},{U}}
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    - id: U
+      description: ''
+    return:
+      type: '{U}'
+      description: ''
+    content.vb: Public Shared Function Transform(Of T, U)(value As T, transformation As Func(Of T, U)) As U
+  overload: CriusNyx.Util.Extensions.Transform*
+  nameWithType.vb: Extensions.Transform(Of T, U)(T, Func(Of T, U))
+  fullName.vb: CriusNyx.Util.Extensions.Transform(Of T, U)(T, System.Func(Of T, U))
+  name.vb: Transform(Of T, U)(T, Func(Of T, U))
+references:
+- uid: CriusNyx.Util
+  commentId: N:CriusNyx.Util
+  href: CriusNyx.html
+  name: CriusNyx.Util
+  nameWithType: CriusNyx.Util
+  fullName: CriusNyx.Util
+  spec.csharp:
+  - uid: CriusNyx
+    name: CriusNyx
+    href: CriusNyx.html
+  - name: .
+  - uid: CriusNyx.Util
+    name: Util
+    href: CriusNyx.Util.html
+  spec.vb:
+  - uid: CriusNyx
+    name: CriusNyx
+    href: CriusNyx.html
+  - name: .
+  - uid: CriusNyx.Util
+    name: Util
+    href: CriusNyx.Util.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CriusNyx.Util.Extensions.As*
+  commentId: Overload:CriusNyx.Util.Extensions.As
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_As__1_System_Object_
+  name: As
+  nameWithType: Extensions.As
+  fullName: CriusNyx.Util.Extensions.As
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: CriusNyx.Util.Extensions.AsNotNull*
+  commentId: Overload:CriusNyx.Util.Extensions.AsNotNull
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AsNotNull__1_System_Object_System_String_
+  name: AsNotNull
+  nameWithType: Extensions.AsNotNull
+  fullName: CriusNyx.Util.Extensions.AsNotNull
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.NullReferenceException
+  commentId: T:System.NullReferenceException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullreferenceexception
+  name: NullReferenceException
+  nameWithType: NullReferenceException
+  fullName: System.NullReferenceException
+- uid: CriusNyx.Util.Extensions.NotNull*
+  commentId: Overload:CriusNyx.Util.Extensions.NotNull
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_NotNull__1___0_System_String_
+  name: NotNull
+  nameWithType: Extensions.NotNull
+  fullName: CriusNyx.Util.Extensions.NotNull
+- uid: CriusNyx.Util.Extensions.With*
+  commentId: Overload:CriusNyx.Util.Extensions.With
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_With__2___0___1_
+  name: With
+  nameWithType: Extensions.With
+  fullName: CriusNyx.Util.Extensions.With
+- uid: '{U}'
+  commentId: '!:U'
+  definition: U
+  name: U
+  nameWithType: U
+  fullName: U
+- uid: System.ValueTuple{{T},{U}}
+  commentId: T:System.ValueTuple{``0,``1}
+  parent: System
+  definition: System.ValueTuple`2
+  name: (T, U)
+  nameWithType: (T, U)
+  fullName: (T, U)
+  spec.csharp:
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+- uid: U
+  name: U
+  nameWithType: U
+  fullName: U
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: CriusNyx.Util.Extensions.AndWith*
+  commentId: Overload:CriusNyx.Util.Extensions.AndWith
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_AndWith__3_System_ValueTuple___0___1____2_
+  name: AndWith
+  nameWithType: Extensions.AndWith
+  fullName: CriusNyx.Util.Extensions.AndWith
+- uid: '{V}'
+  commentId: '!:V'
+  definition: V
+  name: V
+  nameWithType: V
+  fullName: V
+- uid: System.ValueTuple{{T},{U},{V}}
+  commentId: T:System.ValueTuple{``0,``1,``2}
+  parent: System
+  definition: System.ValueTuple`3
+  name: (T, U, V)
+  nameWithType: (T, U, V)
+  fullName: (T, U, V)
+  spec.csharp:
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: ','
+  - name: " "
+  - name: V
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: ','
+  - name: " "
+  - name: V
+  - name: )
+- uid: V
+  commentId: '!:V'
+  name: V
+  nameWithType: V
+  fullName: V
+- uid: System.ValueTuple`3
+  commentId: T:System.ValueTuple`3
+  name: (T1, T2, T3)
+  nameWithType: (T1, T2, T3)
+  fullName: (T1, T2, T3)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: '{W}'
+  commentId: '!:W'
+  definition: W
+  name: W
+  nameWithType: W
+  fullName: W
+- uid: System.ValueTuple{{T},{U},{V},{W}}
+  commentId: T:System.ValueTuple{``0,``1,``2,``3}
+  parent: System
+  definition: System.ValueTuple`4
+  name: (T, U, V, W)
+  nameWithType: (T, U, V, W)
+  fullName: (T, U, V, W)
+  spec.csharp:
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: ','
+  - name: " "
+  - name: V
+  - name: ','
+  - name: " "
+  - name: W
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: ','
+  - name: " "
+  - name: V
+  - name: ','
+  - name: " "
+  - name: W
+  - name: )
+- uid: W
+  commentId: '!:W'
+  name: W
+  nameWithType: W
+  fullName: W
+- uid: System.ValueTuple`4
+  commentId: T:System.ValueTuple`4
+  name: (T1, T2, T3, T4)
+  nameWithType: (T1, T2, T3, T4)
+  fullName: (T1, T2, T3, T4)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: )
+- uid: CriusNyx.Util.Extensions.Touch*
+  commentId: Overload:CriusNyx.Util.Extensions.Touch
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Touch__1___0_System_Action___0__
+  name: Touch
+  nameWithType: Extensions.Touch
+  fullName: CriusNyx.Util.Extensions.Touch
+- uid: System.Action{{T}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: CriusNyx.Util.Extensions.Safe*
+  commentId: Overload:CriusNyx.Util.Extensions.Safe
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Safe__1___0___System_Int32_
+  name: Safe
+  nameWithType: Extensions.Safe
+  fullName: CriusNyx.Util.Extensions.Safe
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IList{{T}}
+  commentId: T:System.Collections.Generic.IList{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IDictionary{{T},{U}}
+  commentId: T:System.Collections.Generic.IDictionary{``0,``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<T, U>
+  nameWithType: IDictionary<T, U>
+  fullName: System.Collections.Generic.IDictionary<T, U>
+  nameWithType.vb: IDictionary(Of T, U)
+  fullName.vb: System.Collections.Generic.IDictionary(Of T, U)
+  name.vb: IDictionary(Of T, U)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: CriusNyx.Util.Extensions.Transform*
+  commentId: Overload:CriusNyx.Util.Extensions.Transform
+  href: CriusNyx.Util.Extensions.html#CriusNyx_Util_Extensions_Transform__2___0_System_Func___0___1__
+  name: Transform
+  nameWithType: Extensions.Transform
+  fullName: CriusNyx.Util.Extensions.Transform
+- uid: System.Func{{T},{U}}
+  commentId: T:System.Func{``0,``1}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, U>
+  nameWithType: Func<T, U>
+  fullName: System.Func<T, U>
+  nameWithType.vb: Func(Of T, U)
+  fullName.vb: System.Func(Of T, U)
+  name.vb: Func(Of T, U)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: U
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

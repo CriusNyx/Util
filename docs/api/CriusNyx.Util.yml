@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: CriusNyx.Util
+  commentId: N:CriusNyx.Util
+  id: CriusNyx.Util
+  children:
+  - CriusNyx.Util.DebugPrint
+  - CriusNyx.Util.DebugPrintExtensions
+  - CriusNyx.Util.Extensions
+  - CriusNyx.Util.LinqExtensions
+  - CriusNyx.Util.StringExtensions
+  langs:
+  - csharp
+  - vb
+  name: CriusNyx.Util
+  nameWithType: CriusNyx.Util
+  fullName: CriusNyx.Util
+  type: Namespace
+  assemblies:
+  - CriusNyxUtil
+references:
+- uid: CriusNyx.Util.Extensions
+  commentId: T:CriusNyx.Util.Extensions
+  parent: CriusNyx.Util
+  href: CriusNyx.Util.Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: CriusNyx.Util.Extensions
+- uid: CriusNyx.Util.LinqExtensions
+  commentId: T:CriusNyx.Util.LinqExtensions
+  parent: CriusNyx.Util
+  href: CriusNyx.Util.LinqExtensions.html
+  name: LinqExtensions
+  nameWithType: LinqExtensions
+  fullName: CriusNyx.Util.LinqExtensions
+- uid: CriusNyx.Util.DebugPrint
+  commentId: T:CriusNyx.Util.DebugPrint
+  href: CriusNyx.Util.DebugPrint.html
+  name: DebugPrint
+  nameWithType: DebugPrint
+  fullName: CriusNyx.Util.DebugPrint
+- uid: CriusNyx.Util.DebugPrintExtensions
+  commentId: T:CriusNyx.Util.DebugPrintExtensions
+  parent: CriusNyx.Util
+  href: CriusNyx.Util.DebugPrintExtensions.html
+  name: DebugPrintExtensions
+  nameWithType: DebugPrintExtensions
+  fullName: CriusNyx.Util.DebugPrintExtensions
+- uid: CriusNyx.Util.StringExtensions
+  commentId: T:CriusNyx.Util.StringExtensions
+  href: CriusNyx.Util.StringExtensions.html
+  name: StringExtensions
+  nameWithType: StringExtensions
+  fullName: CriusNyx.Util.StringExtensions
+- uid: CriusNyx.Util
+  commentId: N:CriusNyx.Util
+  href: CriusNyx.html
+  name: CriusNyx.Util
+  nameWithType: CriusNyx.Util
+  fullName: CriusNyx.Util
+  spec.csharp:
+  - uid: CriusNyx
+    name: CriusNyx
+    href: CriusNyx.html
+  - name: .
+  - uid: CriusNyx.Util
+    name: Util
+    href: CriusNyx.Util.html
+  spec.vb:
+  - uid: CriusNyx
+    name: CriusNyx
+    href: CriusNyx.html
+  - name: .
+  - uid: CriusNyx.Util
+    name: Util
+    href: CriusNyx.Util.html
