@@ -8,6 +8,10 @@ This is a set of utility functions that I find myself using frequently.
 
 They provide a fluent api for doing a lot of common things.
 
+### See [Introduction](./docs/introduction)
+
+## Examples
+
 For example, say you want to assign a field to an object before passing it into 
 a method.
 
@@ -43,6 +47,9 @@ var AssignParser =
     equal.NotNull("equal"), 
     right.NotNull("right"));
 ```
+
+Or this case where you want to validate a class and throw an exception before
+returning control flow to the caller.
 
 ```cs
 // Null check a field on initialization.
