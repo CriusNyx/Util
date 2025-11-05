@@ -2,18 +2,40 @@ using System.Text;
 
 namespace CriusNyx.Util;
 
+/// <summary>
+/// Extensions for strings.
+/// </summary>
 public static class StringExtensions
 {
+  /// <summary>
+  /// Indent each line in a string by the specified indentation.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="indentation"></param>
+  /// <returns></returns>
   public static string Indent(this string source, string indentation)
   {
     return source.Split("\n").Select(x => $"{indentation}{x}").StringJoin("\n");
   }
 
+  /// <summary>
+  /// Join an enumerable of strings into a single string.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="separator"></param>
+  /// <returns></returns>
   public static string StringJoin(this IEnumerable<string> source, string separator = "")
   {
     return string.Join(separator, source);
   }
 
+  /// <summary>
+  /// Truncate the string to the specified length. Elipsize the string with the specified elipsize if provided.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="Length"></param>
+  /// <param name="elipsize"></param>
+  /// <returns></returns>
   public static string Truncate(this string source, int Length, string elipsize = "")
   {
     elipsize = elipsize ?? "";
@@ -37,6 +59,12 @@ public static class StringExtensions
     return source;
   }
 
+  /// <summary>
+  /// Helper methods for printing grid.
+  /// </summary>
+  /// <param name="lines"></param>
+  /// <param name="maxWidth"></param>
+  /// <returns></returns>
   private static int[] ComputeColumnWidths(IEnumerable<IEnumerable<string>> lines, int maxWidth)
   {
     if (lines.Count() == 0)
@@ -68,6 +96,15 @@ public static class StringExtensions
     return columnWidths;
   }
 
+  /// <summary>
+  /// Format a 2 dimensional list of strings into a grid.
+  /// The outer dimension should be lines, and the inner dimension should be columns in those lines.
+  /// </summary>
+  /// <param name="lines"></param>
+  /// <param name="separator"></param>
+  /// <param name="maxWidth"></param>
+  /// <param name="elipsize"></param>
+  /// <returns></returns>
   public static string FormatGrid(
     this IEnumerable<IEnumerable<string>> lines,
     string separator = "",
