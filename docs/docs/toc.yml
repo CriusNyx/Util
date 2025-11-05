@@ -4,9 +4,9 @@
   href: object-extensions.md
 - name: Linq Extensions
   href: linq-extensions.md
-- name: Print Debug
-  href: print-debug.md
 - name: String Extensions
   href: string-extensions.md
 - name: Tree Extensions
   href: tree.md
+- name: Print Debug
+  href: print-debug.md

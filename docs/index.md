@@ -8,7 +8,7 @@ This is a set of utility functions that I find myself using frequently.
 
 They provide a fluent api for doing a lot of common things.
 
-### See [Introduction](./docs/introduction)
+### See [Introduction](./docs/introduction) or [API](./api/CriusNyx.Util.html)
 
 ## Examples
 
