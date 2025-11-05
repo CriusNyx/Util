@@ -93,6 +93,17 @@ var world = dict.Safe("World");
 // null
 ```
 
+You can also use safe with a function.
+If the function throws an exception the default value will be returned.
+
+```cs
+string[] arr = ["Hello"];
+var a = arr.Safe((x) => x[0]);
+// "Hello"
+var b = arr.Safe((x) => x[1]);
+// null
+```
+
 ### Transform
 
 Transform a value to a different form.

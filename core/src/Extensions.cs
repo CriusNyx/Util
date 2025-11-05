@@ -163,6 +163,26 @@ public static class Extensions
   }
 
   /// <summary>
+  /// Try to execution the function and return the value. Return the default value otherwise.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="getter"></param>
+  /// <returns></returns>
+  public static U? Safe<T, U>(this T value, Func<T, U> getter)
+  {
+    try
+    {
+      return getter(value);
+    }
+    catch
+    {
+      return default;
+    }
+  }
+
+  /// <summary>
   /// Convert the element to a new element.
   /// </summary>
   /// <typeparam name="T"></typeparam>

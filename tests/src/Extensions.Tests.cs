@@ -101,6 +101,14 @@ public class ExtensionTests
   }
 
   [Test]
+  public void Safe_Func_Works()
+  {
+    List<string> list = new List<string>() { "Hello" };
+    Assert.That(list.Safe((x) => x[0]), Is.EqualTo("Hello"));
+    Assert.That(list.Safe((x) => x[1]), Is.EqualTo(null));
+  }
+
+  [Test]
   public void Safe_Dictionary_Works()
   {
     Dictionary<string, string> dict = new Dictionary<string, string>() { { "key", "value" } };
