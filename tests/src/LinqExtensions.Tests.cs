@@ -9,6 +9,16 @@ class ClassB { }
 public class LinqExtensionsTests
 {
   [Test]
+  public void Foreach_Works()
+  {
+    string[] source = ["a", "b"];
+    HashSet<string> actual = new HashSet<string>();
+    source.Foreach((x) => actual.Add(x));
+    var expected = new HashSet<string>(["a", "b"]);
+    Assert.That(actual, Is.EquivalentTo(expected));
+  }
+
+  [Test]
   public void WhereAs_Filters_Array()
   {
     var a = new ClassA();

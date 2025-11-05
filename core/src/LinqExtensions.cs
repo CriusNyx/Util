@@ -4,6 +4,14 @@ namespace CriusNyx.Util;
 
 public static class LinqExtensions
 {
+  public static void Foreach<T>(this IEnumerable<T> enumerable, Action<T> action)
+  {
+    foreach (var element in enumerable)
+    {
+      action(element);
+    }
+  }
+
   public static IEnumerable<T> WhereAs<T>(this IEnumerable enumerable)
   {
     foreach (var element in enumerable)
