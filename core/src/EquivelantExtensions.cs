@@ -42,7 +42,7 @@ public static class EquivalentExtensions
       if (
         !source.TryGetValue(key, out var a)
         || !other.TryGetValue(key, out var b)
-        || !a.Equivalent(b)
+        || !a.Equivalent(b!)
       )
       {
         return false;
