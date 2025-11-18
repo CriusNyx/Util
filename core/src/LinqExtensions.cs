@@ -97,4 +97,32 @@ public static class LinqExtensions
     }
     return values;
   }
+
+  /// <summary>
+  /// Get or set the specified key in the dictionary.
+  /// </summary>
+  /// <typeparam name="Key"></typeparam>
+  /// <typeparam name="Value"></typeparam>
+  /// <param name="dictionary"></param>
+  /// <param name="key"></param>
+  /// <param name="create"></param>
+  /// <returns></returns>
+  public static Value GetOrSet<Key, Value>(
+    this Dictionary<Key, Value> dictionary,
+    Key key,
+    Func<Value> create
+  )
+    where Key : notnull
+  {
+    if (dictionary.TryGetValue(key, out var value))
+    {
+      return value;
+    }
+    else
+    {
+      var output = create();
+      dictionary[key] = output;
+      return output;
+    }
+  }
 }

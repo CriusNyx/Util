@@ -61,4 +61,23 @@ public class LinqExtensionsTests
     var actual = elements.PadWith(3, "");
     Assert.That(actual, Is.EquivalentTo(new string[] { "A", "B", "" }));
   }
+
+  [Test]
+  public void GetOrSet_GetWorks()
+  {
+    var expected = new object();
+    var dictionary = new Dictionary<string, object>();
+    dictionary["A"] = expected;
+    var actual = dictionary.GetOrSet("A", () => new object());
+    Assert.That(actual, Is.EqualTo(expected));
+  }
+
+  [Test]
+  public void GetOrSet_CreateWorks()
+  {
+    var expected = new object();
+    var dictionary = new Dictionary<string, object>();
+    var actual = dictionary.GetOrSet("A", () => expected);
+    Assert.That(actual, Is.EqualTo(expected));
+  }
 }
