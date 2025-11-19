@@ -1,3 +1,5 @@
+namespace CriusNyx.Util;
+
 /// <summary>
 /// Implemented the Equivalent method that determines that two elements are equivalent but not nessessarily equal.
 /// </summary>

@@ -1,3 +1,5 @@
+namespace CriusNyx.Util;
+
 /// <summary>
 /// Extensions methods for the Equivalent interface.
 /// </summary>

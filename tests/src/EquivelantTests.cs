@@ -1,5 +1,3 @@
-using System.Reflection.Metadata;
-
 namespace CriusNyx.Util.Tests;
 
 public class EquivalentTestClass(string value) : Equivalent

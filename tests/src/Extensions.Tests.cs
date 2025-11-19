@@ -57,6 +57,40 @@ public class ExtensionTests
   }
 
   [Test]
+  public void OrDefault_Works_When_Correct()
+  {
+    var expected = new object();
+    var actual = expected.OrDefault(new object());
+    Assert.That(actual, Is.EqualTo(expected));
+  }
+
+  [Test]
+  public void OrDefault_Works_When_Null()
+  {
+    object? source = null!;
+    var expected = new object();
+    var actual = source.OrDefault(expected);
+    Assert.That(actual, Is.EqualTo(expected));
+  }
+
+  [Test]
+  public void OrDefaultWith_Works_When_Correct()
+  {
+    var expected = new object();
+    var actual = expected.OrDefaultWith(() => new object());
+    Assert.That(actual, Is.EqualTo(expected));
+  }
+
+  [Test]
+  public void OrDefaultWith_Works_When_Null()
+  {
+    object? source = null!;
+    var expected = new object();
+    var actual = source.OrDefaultWith(() => expected);
+    Assert.That(actual, Is.EqualTo(expected));
+  }
+
+  [Test]
   public void With_Works()
   {
     var a = new object();

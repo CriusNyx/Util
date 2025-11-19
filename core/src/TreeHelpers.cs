@@ -1,3 +1,5 @@
+namespace CriusNyx.Util;
+
 /// <summary>
 /// Apply this interface to a class to allow it to auto implement Traverse and other tree extensions.
 /// </summary>

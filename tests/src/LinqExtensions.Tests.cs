@@ -1,5 +1,3 @@
-using NUnit.Framework.Internal;
-
 namespace CriusNyx.Util.Tests;
 
 class ClassA { }

@@ -59,6 +59,30 @@ public static class Extensions
   }
 
   /// <summary>
+  /// Returns the value, or the provided default is value is null.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="defaultValue"></param>
+  /// <returns></returns>
+  public static T OrDefault<T>(this T? value, T defaultValue)
+  {
+    return value ?? defaultValue;
+  }
+
+  /// <summary>
+  /// Returns the value, or the result of the provided function if the value is null.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="defaultFunc"></param>
+  /// <returns></returns>
+  public static T OrDefaultWith<T>(this T? value, Func<T> defaultFunc)
+  {
+    return value ?? defaultFunc();
+  }
+
+  /// <summary>
   /// Create a tuple with the this element and the other element.
   /// </summary>
   /// <typeparam name="T"></typeparam>
