@@ -46,3 +46,12 @@ var output = input.FromatGrid(" ");
 // A B
 // C D
 ```
+
+### Bisect
+
+Given a string an a separator bisect the string into the parts before and after.
+
+```cs
+var (a, b) = "a, b".Bisect(", ");
+// ("a", "b")
+```

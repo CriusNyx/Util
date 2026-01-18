@@ -136,4 +136,26 @@ public static class StringExtensions
     }
     return builder.ToString();
   }
+
+  /// <summary>
+  /// Return the string split up before and after the first occurrence of search.
+  /// If search does not exist in the string then orDefault will be returned as the first element of result.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="search"></param>
+  /// <param name="orDefault">Default value if search is not found. Default to ""</param>
+  /// <returns></returns>
+  public static (string before, string after) Bisect(
+    this string source,
+    string search,
+    string orDefault = ""
+  )
+  {
+    var index = source.IndexOf(search);
+    if (index >= 0)
+    {
+      return source.Substring(0, index).With(source.Substring(index + search.Length));
+    }
+    return (orDefault, source);
+  }
 }

@@ -125,6 +125,39 @@ public static class Extensions
   }
 
   /// <summary>
+  /// Expand a tuple by using the expander function on the last element.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="expander"></param>
+  /// <returns></returns>
+  public static (T, U, V) Expand<T, U, V>(this (T, U) value, Func<U, (U, V)> expander)
+  {
+    var (a, last) = value;
+    var (b, c) = expander(last);
+    return (a, b, c);
+  }
+
+  /// <summary>
+  /// Expand a tuple by using the expander function on the last element.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="expander"></param>
+  /// <returns></returns>
+  public static (T, U, V, W) Expand<T, U, V, W>(this (T, U, V) value, Func<V, (V, W)> expander)
+  {
+    var (a, b, last) = value;
+    var (c, d) = expander(last);
+    return (a, b, c, d);
+  }
+
+  /// <summary>
   /// Perform some action with the this object and then return that same object.
   /// </summary>
   /// <typeparam name="T"></typeparam>

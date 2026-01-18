@@ -1,3 +1,5 @@
+using NuGet.Frameworks;
+
 namespace CriusNyx.Util.Tests;
 
 public class StringExtensionsTests
@@ -14,6 +16,27 @@ public class StringExtensionsTests
   {
     Assert.That(new string[] { "a", "b" }.StringJoin(), Is.EqualTo("ab"));
     Assert.That(new string[] { "a", "b" }.StringJoin("\n"), Is.EqualTo("a\nb"));
+  }
+
+  [Test]
+  public void CanBisectComma()
+  {
+    var actual = "hello, world".Bisect(",");
+    Assert.That(actual, Is.EqualTo(("hello", " world")));
+  }
+
+  [Test]
+  public void CanBisectNoComma()
+  {
+    var actual = "hello world".Bisect(",");
+    Assert.That(actual, Is.EqualTo(("", "hello world")));
+  }
+
+  [Test]
+  public void CanBisectNoCommaWithDefault()
+  {
+    var actual = "hello world".Bisect(",", null!);
+    Assert.That(actual, Is.EqualTo((null as string, "hello world")));
   }
 }
 

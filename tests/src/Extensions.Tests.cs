@@ -1,3 +1,5 @@
+using NuGet.Frameworks;
+
 namespace CriusNyx.Util.Tests;
 
 public class ExtensionTests
@@ -156,5 +158,19 @@ public class ExtensionTests
     var source = "a";
     var result = source.Transform(x => x + "b");
     Assert.That(result, Is.EqualTo("ab"));
+  }
+
+  [Test]
+  public void CanExpand2()
+  {
+    var actual = ("A", "B, C").Expand((last) => last.Bisect(", "));
+    Assert.That(actual, Is.EqualTo(("A", "B", "C")));
+  }
+
+  [Test]
+  public void CanExpand3()
+  {
+    var actual = ("A", "B", "C, D").Expand((last) => last.Bisect(", "));
+    Assert.That(actual, Is.EqualTo(("A", "B", "C", "D")));
   }
 }

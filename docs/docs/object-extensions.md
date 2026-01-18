@@ -2,8 +2,8 @@
 
 ### AS
 
-Same as the As keyword. Just conveinint for places where the As keyword
-isn't easy to insert.
+Same as the As keyword. Just convenient for places where the As keyword isn't
+easy to insert.
 
 ```cs
 var a = new Expected();
@@ -58,6 +58,15 @@ var result = "A".With("B").AndWith("C");
 // ("A", "B", "C")
 ```
 
+### Expand
+
+Expand a tuple by applying the expander function to the last element.
+
+```cs
+var (first, second, third) = "Foo: Bar, Baz".Bisect(": ").Expand(rest => rest.Bisect(", "));
+// ("Foo", "Bar", "Baz")
+```
+
 ### Touch
 
 Perform the action on the object and then return the same object.
@@ -93,8 +102,8 @@ var world = dict.Safe("World");
 // null
 ```
 
-You can also use safe with a function.
-If the function throws an exception the default value will be returned.
+You can also use safe with a function. If the function throws an exception the
+default value will be returned.
 
 ```cs
 string[] arr = ["Hello"];
