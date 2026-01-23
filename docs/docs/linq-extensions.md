@@ -123,6 +123,6 @@ Same as consume but following C#'s try style.
 ```cs
 object[] source = [1, "hello", 3];
 if(source.TryConsume(out var a)){
-  // a will be source.
+  // a will be 1.
 }
 ```
