@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Concurrent;
+using Microsoft.VisualBasic;
 
 namespace CriusNyx.Util;
 
@@ -136,5 +138,133 @@ public static class LinqExtensions
       dictionary[key] = output;
       return output;
     }
+  }
+
+  /// <summary>
+  /// Take 2 elements from the array of type T and U.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, U?) Take<T, U>(this IEnumerable source)
+  {
+    var enumerator = source.GetEnumerator();
+    return (enumerator.Consume()!.As<T>(), enumerator.Consume()!.As<U>());
+  }
+
+  /// <summary>
+  /// Take 3 elements form the array of type T, U and V.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, U?, V?) Take<T, U, V>(this IEnumerable source)
+  {
+    var enumerator = source.GetEnumerator();
+    return (
+      enumerator.Consume()!.As<T>(),
+      enumerator.Consume()!.As<U>(),
+      enumerator.Consume()!.As<V>()
+    );
+  }
+
+  /// <summary>
+  /// Take 3 elements form the array of type T, U, V and W.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, U?, V?, W?) Take<T, U, V, W>(this IEnumerable source)
+  {
+    var enumerator = source.GetEnumerator();
+    return (
+      enumerator.Consume()!.As<T>(),
+      enumerator.Consume()!.As<U>(),
+      enumerator.Consume()!.As<V>(),
+      enumerator.Consume()!.As<W>()
+    );
+  }
+
+  /// <summary>
+  /// Take 5 elements of type T, U, V, W and X
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <typeparam name="X"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, U?, V?, W?, X?) Take<T, U, V, W, X>(this IEnumerable source)
+  {
+    var enumerator = source.GetEnumerator();
+    return (
+      enumerator.Consume()!.As<T>(),
+      enumerator.Consume()!.As<U>(),
+      enumerator.Consume()!.As<V>(),
+      enumerator.Consume()!.As<W>(),
+      enumerator.Consume()!.As<X>()
+    );
+  }
+
+  /// <summary>
+  /// Take 6 elements of type T, U, V, W, X and Y
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <typeparam name="X"></typeparam>
+  /// <typeparam name="Y"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, U?, V?, W?, X?, Y?) Take<T, U, V, W, X, Y>(this IEnumerable source)
+  {
+    var enumerator = source.GetEnumerator();
+    return (
+      enumerator.Consume()!.As<T>(),
+      enumerator.Consume()!.As<U>(),
+      enumerator.Consume()!.As<V>(),
+      enumerator.Consume()!.As<W>(),
+      enumerator.Consume()!.As<X>(),
+      enumerator.Consume()!.As<Y>()
+    );
+  }
+
+  /// <summary>
+  /// Consume a single element from the enumerator.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static object? Consume(this IEnumerator source)
+  {
+    if (source.MoveNext())
+    {
+      return source.Current;
+    }
+    return default!;
+  }
+
+  /// <summary>
+  /// Try to consume the next element from the enumerator.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  public static bool TryConsume(this IEnumerator source, out object value)
+  {
+    if (source.MoveNext())
+    {
+      value = source.Current;
+      return true;
+    }
+    value = default!;
+    return false;
   }
 }

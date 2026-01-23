@@ -92,3 +92,37 @@ var source = [1, 2, 3];
 var result = source.PadWith(5, -1).ToArray();
 // result will be [1, 2, 3, -1, -1];
 ```
+
+### Take
+
+Take up to 6 elements from a enumerable.
+
+```cs
+object source = [1, "hello", 3];
+var (integer, str) = source.Take<int, string>();
+// Will be 1 and "hello"
+```
+
+### Consume
+
+Given an IEnumerator consume the next element and advance the enumerator
+
+```cs
+object[] source = [1, "hello", 3];
+var enumerator = source.GetEnumerator();
+var a = enumerator.Consume();
+var b = enumerator.Consume();
+var c = enumerator.Consume();
+// Will be 1, "hello" and 3 respectively.
+```
+
+### TryConsume
+
+Same as consume but following C#'s try style.
+
+```cs
+object[] source = [1, "hello", 3];
+if(source.TryConsume(out var a)){
+  // a will be source.
+}
+```
