@@ -72,6 +72,24 @@ public class LinqExtensionsTests
   }
 
   [Test]
+  public void InnerZip_Works()
+  {
+    string[] names = ["Sam", "Carry"];
+    int[] values = [3];
+    var actual = names.InnerZip(values);
+    Assert.That(actual, Is.EquivalentTo(new (string, int)[] { "Sam".With(3) }));
+  }
+
+  [Test]
+  public void OuterZip_Works()
+  {
+    string[] names = ["Sam", "Carry"];
+    int[] values = [3];
+    var actual = names.OuterZip(values);
+    Assert.That(actual, Is.EquivalentTo(new (string, int)[] { "Sam".With(3), "Carry".With(0) }));
+  }
+
+  [Test]
   public void GetOrSet_GetWorks()
   {
     var expected = new object();

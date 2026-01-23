@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Concurrent;
 using Microsoft.VisualBasic;
 
 namespace CriusNyx.Util;
@@ -110,6 +109,44 @@ public static class LinqExtensions
       return values.Concat(Enumerable.Repeat(element, length - count));
     }
     return values;
+  }
+
+  /// <summary>
+  /// Zip the lists together, zipping only the elements that exist in both lists.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="left"></param>
+  /// <param name="right"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T left, U right)> InnerZip<T, U>(
+    this IEnumerable<T> left,
+    IEnumerable<U> right
+  )
+  {
+    int len = Math.Min(left.Count(), right.Count());
+    return left.Take(len).Zip(right.Take(len));
+  }
+
+  /// <summary>
+  /// Zips the lists together, padding with the provided defaults if one list is longer then the other.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="left"></param>
+  /// <param name="right"></param>
+  /// <param name="defaultLeft"></param>
+  /// <param name="defaultRight"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T left, U right)> OuterZip<T, U>(
+    this IEnumerable<T> left,
+    IEnumerable<U> right,
+    T defaultLeft = default!,
+    U defaultRight = default!
+  )
+  {
+    int len = Math.Max(left.Count(), right.Count());
+    return left.PadWith(len, defaultLeft).Zip(right.PadWith(len, defaultRight));
   }
 
   /// <summary>

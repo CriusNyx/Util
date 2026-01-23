@@ -93,6 +93,32 @@ var result = source.PadWith(5, -1).ToArray();
 // result will be [1, 2, 3, -1, -1];
 ```
 
+### InnerZip
+
+Zips the elements matching the length of the shorter element.
+
+```cs
+string[] names = ["Sam", "Heartman"];
+int[] values = [3];
+var zipped = names.InnerZip(values);
+// Will be [("Sam", 3)];
+```
+
+### OuterZip
+
+Zips the elements matching the length of the outer element.
+
+```cs
+string[] names = ["Sam", "Heartman"];
+int[] values = [3];
+var zipped = names.InnerZip(values);
+// Will be [("Sam", 3), ("Heartman", 0)];
+```
+
+### OuterZip
+
+Zips the elements matching the length of the longer element.
+
 ### Take
 
 Take up to 6 elements from a enumerable.
