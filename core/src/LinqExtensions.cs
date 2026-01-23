@@ -62,6 +62,18 @@ public static class LinqExtensions
   }
 
   /// <summary>
+  /// Create a new array with the other elements appended on the end.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <param name="other"></param>
+  /// <returns></returns>
+  public static T[] Expand<T>(this T[] source, IEnumerable<T> other)
+  {
+    return source.Concat(other).ToArray();
+  }
+
+  /// <summary>
   /// Append indexes to the enumerable and return a new enumerable with those elements.
   /// </summary>
   /// <typeparam name="T"></typeparam>

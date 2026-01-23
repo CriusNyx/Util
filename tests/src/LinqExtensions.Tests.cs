@@ -36,6 +36,17 @@ public class LinqExtensionsTests
   }
 
   [Test]
+  public void Expand_Works()
+  {
+    var a = new object();
+    var b = new object();
+    var c = new object();
+    object[] original = [a, b];
+    var actual = original.Expand([c]);
+    Assert.That(actual, Is.EqualTo(new object[] { a, b, c }));
+  }
+
+  [Test]
   public void AsArray_Works()
   {
     var a = new object();

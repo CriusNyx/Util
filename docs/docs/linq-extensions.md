@@ -2,11 +2,10 @@
 
 ### Foreach
 
-Perform an operation for each element in the collection.
-Unlike select the function doesn't return.
+Perform an operation for each element in the collection. Unlike select the
+function doesn't return.
 
 ```cs
-
 var elements = [new Value("Hello"), new Value(null)];
 
 elements.WithIndex().Foreach((pair) => {
@@ -21,7 +20,8 @@ elements.WithIndex().Foreach((pair) => {
 
 ### WhereAs
 
-Convert each element in the collection to the new type, and return all elements that can be converted.
+Convert each element in the collection to the new type, and return all elements
+that can be converted.
 
 ```cs
 var values = [new object(), new NumVal(0)];
@@ -33,8 +33,7 @@ var onlyNumVals = values.WhereAs<NumVal>();
 
 ### AsArray
 
-Convert an element to an array with that element.
-Useful for working with linq.
+Convert an element to an array with that element. Useful for working with linq.
 
 ```cs
 var element = "Hello World!";
@@ -54,6 +53,16 @@ var rest = ["World", "And"];
 var result = element.ThenConcat(rest);
 
 // IEnumerable{ "Hello", "World", "And" }
+```
+
+### Expand
+
+Creates a new array expanded with the new contents.
+
+```cs
+var arr = ["Foo", "Bar"];
+var result = arr.Expand(["Baz"]);
+// ["Foo", "Bar", "Baz"];
 ```
 
 ### WithIndex
