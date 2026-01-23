@@ -116,6 +116,15 @@ var c = enumerator.Consume();
 // Will be 1, "hello" and 3 respectively.
 ```
 
+You can also provide a default value
+
+```cs
+object[] source = [1];
+var enumerator = source.GetEnumerator();
+var a = enumerator.Consume<string>("empty");
+// a will be "empty"
+```
+
 ### TryConsume
 
 Same as consume but following C#'s try style.

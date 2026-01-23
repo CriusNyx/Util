@@ -252,6 +252,22 @@ public static class LinqExtensions
   }
 
   /// <summary>
+  /// Consume an element from the source or return the default value.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <param name="defaultValue"></param>
+  /// <returns></returns>
+  public static T Consume<T>(this IEnumerator source, T defaultValue = default!)
+  {
+    if (source.MoveNext() && source.Current is T t)
+    {
+      return t;
+    }
+    return defaultValue!;
+  }
+
+  /// <summary>
   /// Try to consume the next element from the enumerator.
   /// </summary>
   /// <param name="source"></param>

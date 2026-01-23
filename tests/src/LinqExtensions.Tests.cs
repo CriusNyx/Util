@@ -281,4 +281,38 @@ public class LinqExtensionsTests
     Assert.That(success);
     Assert.That(value, Is.EqualTo(a));
   }
+
+  [Test]
+  public void Consume_WithoutDefault_WithValue_Works()
+  {
+    var a = "str";
+    object[] arr = [a];
+    var actual = arr.GetEnumerator().Consume<string>();
+    Assert.That(actual, Is.EqualTo(a));
+  }
+
+  [Test]
+  public void Consume_WithoutDefault_WithoutValue_Works()
+  {
+    object[] arr = [];
+    var actual = arr.GetEnumerator().Consume<string>();
+    Assert.That(actual, Is.Null);
+  }
+
+  [Test]
+  public void Consume_WithDefault_WithValue_Works()
+  {
+    var a = "str";
+    object[] arr = [a];
+    var actual = arr.GetEnumerator().Consume<string>("empty");
+    Assert.That(actual, Is.EqualTo(a));
+  }
+
+  [Test]
+  public void Consume_WithDefault_WithoutValue_Works()
+  {
+    object[] arr = [];
+    var actual = arr.GetEnumerator().Consume<string>("empty");
+    Assert.That(actual, Is.EqualTo("empty"));
+  }
 }
