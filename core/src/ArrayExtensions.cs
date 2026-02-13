@@ -1,4 +1,4 @@
-using CriusNyx.Util;
+namespace CriusNyx.Util;
 
 /// <summary>
 /// Extensions for arrays
