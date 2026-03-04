@@ -32,6 +32,6 @@ The `Debug` extension method works for C#'s built in set types.
 
 You can implement the `PrintDebug` interface to customize how `Debug` works for
 a particular type. It includes a single method `EnumerateFields` which expects
-you to return a tuple of field names with their values. The `Debug` method will
-recursively print every value which implements `PrintDebug` and every element in
-a collection or dictionary.
+you to return a list of tuples of field names with their values. The `Debug`
+method will recursively print every value which implements `PrintDebug` and
+every element in a collection or dictionary.
