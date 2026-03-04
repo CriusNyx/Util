@@ -6,13 +6,13 @@ _layout: landing
 
 This is a set of utility functions that I find myself using frequently.
 
-They provide a fluent api for doing a lot of common things.
+They provide a fluent api for tasks I do frequently.
 
 ### See [Introduction](./docs/introduction) or [API](./api/CriusNyx.Util.html)
 
 ## Examples
 
-For example, say you want to assign a field to an object before passing it into 
+For example, say you want to assign a field to an object before passing it into
 a method.
 
 ```cs
@@ -21,21 +21,19 @@ Tree.AddChild(
 );
 ```
 
-Or you want to validate that the result of a function is not null before 
+Or you want to validate that the result of a function is not null before
 assigning it to a field.
 
 ```cs
 var a = MyClass.From(source).NotNull("a");
 ```
 
-These methods are useful when creating method chains or defining objects.
-
-Consider the source code for this language parser. The child parsers shouldn't 
-return a value if they don't succeed in parsing. Therefore, left, equal, or 
-right returning a null value would indicate that a bug has slipped. Using the 
-NotNull method will give the developer a crash with a useful error method if
-the application this bug is introduced during development, rather then letting
-the construction of an invalid object happen and having it crash later.
+Consider the source code for this language parser. If the parser reaches the
+select statement left, equal and right should be defined. Therefore, left,
+equal, or right returning a null value would indicate that a bug has slipped.
+Using the NotNull method will give the developer a crash with a useful error if
+a bug is introduced during development, rather then letting the construction of
+an invalid object happen and having it crash later.
 
 ```cs
 var AssignParser =
@@ -43,8 +41,8 @@ var AssignParser =
   from equal in EqualSignParser
   from right in RightHandExpressionParser
   select new AssignExpression(
-    left.NotNull("left"), 
-    equal.NotNull("equal"), 
+    left.NotNull("left"),
+    equal.NotNull("equal"),
     right.NotNull("right"));
 ```
 
@@ -57,3 +55,6 @@ public class MyClass(string value){
   string Value = value.NotNull("value");
 }
 ```
+
+Consider looking at the [Introduction](./docs/introduction) for a rundown of the
+library.
