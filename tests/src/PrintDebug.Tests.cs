@@ -1,3 +1,5 @@
+using NUnit.Framework.Constraints;
+
 namespace CriusNyx.Util.Tests;
 
 public class TestObject : DebugPrint
@@ -76,5 +78,27 @@ public class PrintDebugTests
     var o = new TestObject { fieldA = "Hello", fieldB = 1 };
     var d = o.Debug();
     Assert.That(o.Debug, Is.EqualTo(DebugObjectOutput));
+  }
+
+  class ObjectForCustomPrinter
+  {
+    public required string Key;
+    public required string Value;
+  }
+
+  [Test]
+  public void PrintDebug_CustomPrinter_Works()
+  {
+    DebugPrint.RegisterCustomType<ObjectForCustomPrinter>(
+      (value) => [nameof(value.Key).With(value.Key), nameof(value.Value).With(value.Value)]
+    );
+    string expected =
+      @"ObjectForCustomPrinter {
+  Key: ""key"",
+  Value: ""value""
+}";
+    var o = new ObjectForCustomPrinter { Key = "key", Value = "value" };
+
+    Assert.That(o.Debug(), Is.EqualTo(expected));
   }
 }

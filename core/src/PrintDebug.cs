@@ -1,4 +1,7 @@
+// RON.NET wasn't really meeting my needs. If a new RON serializer for .NET is created that is more dynamic I should switch to that.
+
 using System.Collections;
+using System.Runtime.InteropServices;
 
 namespace CriusNyx.Util;
 
@@ -13,9 +16,20 @@ public interface DebugPrint
   /// </summary>
   /// <returns></returns>
   IEnumerable<(string, object)> EnumerateFields();
-}
 
-// RON.NET wasn't really meeting my needs. If a new RON serializer for .NET is created that is more dynamic I should switch to that.
+  internal static Dictionary<Type, Func<object, IEnumerable<(string, object)>>> customPrinters =
+    new Dictionary<Type, Func<object, IEnumerable<(string, object)>>>();
+
+  /// <summary>
+  /// Register custom enumeration method for Debug Print.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="enumerateField"></param>
+  public static void RegisterCustomType<T>(Func<T, IEnumerable<(string, object)>> enumerateField)
+  {
+    customPrinters.Add(typeof(T), (object o) => enumerateField((T)o));
+  }
+}
 
 /// <summary>
 /// Serialize the object to a Debug object similar to rust object notation (RON).
@@ -32,6 +46,11 @@ public static class DebugPrintExtensions
     return body.Select(PrintField).StringJoin(",\n");
   }
 
+  private static string PrintObject(string objectName, IEnumerable<(string, object)> fields)
+  {
+    return $"{objectName} {{\n{PrintBody(fields).Indent("  ")}\n}}";
+  }
+
   /// <summary>
   /// Serialize the object in a RON like notation and return that string.
   /// </summary>
@@ -39,6 +58,10 @@ public static class DebugPrintExtensions
   /// <returns></returns>
   public static string Debug(this object o)
   {
+    if (o != null && DebugPrint.customPrinters.TryGetValue(o.GetType(), out var customPrinter))
+    {
+      return PrintObject(o.GetType().Name, customPrinter(o));
+    }
     if (o is string str)
     {
       return $"\"{str}\"";
@@ -60,7 +83,7 @@ public static class DebugPrintExtensions
     }
     else if (o is DebugPrint debug)
     {
-      return $"{o.GetType().Name} {{\n{PrintBody(debug.EnumerateFields()).Indent("  ")}\n}}";
+      return PrintObject(o.GetType().Name, debug.EnumerateFields());
     }
     else if (o is null)
     {
