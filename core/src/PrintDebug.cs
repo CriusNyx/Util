@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Runtime.InteropServices;
+using Microsoft.VisualBasic;
 
 namespace CriusNyx.Util;
 
@@ -17,17 +18,40 @@ public interface DebugPrint
   /// <returns></returns>
   IEnumerable<(string, object)> EnumerateFields();
 
-  internal static Dictionary<Type, Func<object, IEnumerable<(string, object)>>> customPrinters =
-    new Dictionary<Type, Func<object, IEnumerable<(string, object)>>>();
+  internal delegate IEnumerable<(string, object)> CustomDebugPrint_Impl(object o);
+
+  /// <summary>
+  /// Custom debug print implementation
+  /// </summary>
+  /// <param name="o"></param>
+  /// <returns></returns>
+  public delegate IEnumerable<(string, object)> CustomDebugPrint<T>(T o);
+
+  internal static Dictionary<Type, CustomDebugPrint_Impl> customPrinters =
+    new Dictionary<Type, CustomDebugPrint_Impl>();
 
   /// <summary>
   /// Register custom enumeration method for Debug Print.
   /// </summary>
   /// <typeparam name="T"></typeparam>
   /// <param name="enumerateField"></param>
-  public static void RegisterCustomType<T>(Func<T, IEnumerable<(string, object)>> enumerateField)
+  public static void RegisterCustomType<T>(CustomDebugPrint<T> enumerateField)
   {
     customPrinters.Add(typeof(T), (object o) => enumerateField((T)o));
+  }
+
+  internal static bool TryGetCustomFormatter(Type type, out CustomDebugPrint_Impl impl)
+  {
+    if (customPrinters.TryGetValue(type, out impl!))
+    {
+      return true;
+    }
+    if (type.BaseType != null)
+    {
+      return TryGetCustomFormatter(type.BaseType, out impl);
+    }
+
+    return false;
   }
 }
 
@@ -58,7 +82,7 @@ public static class DebugPrintExtensions
   /// <returns></returns>
   public static string Debug(this object o)
   {
-    if (o != null && DebugPrint.customPrinters.TryGetValue(o.GetType(), out var customPrinter))
+    if (o != null && DebugPrint.TryGetCustomFormatter(o.GetType(), out var customPrinter))
     {
       return PrintObject(o.GetType().Name, customPrinter(o));
     }
