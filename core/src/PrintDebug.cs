@@ -79,6 +79,17 @@ public static class DebugPrintExtensions
   /// Serialize the object in a RON like notation and return that string.
   /// </summary>
   /// <param name="o"></param>
+  /// <param name="name"></param>
+  /// <returns></returns>
+  public static string Debug(this object o, string name)
+  {
+    return $"{name} = {o.Debug()}";
+  }
+
+  /// <summary>
+  /// Serialize the object in a RON like notation and return that string.
+  /// </summary>
+  /// <param name="o"></param>
   /// <returns></returns>
   public static string Debug(this object o)
   {
@@ -103,7 +114,7 @@ public static class DebugPrintExtensions
     }
     else if (o is IEnumerable enumerable)
     {
-      return $"[\n{enumerable.Cast<object>().Select(Debug).StringJoin(",\n").Indent("  ")}\n]";
+      return $"[\n{enumerable.Cast<object>().Select((value) => Debug(value)).StringJoin(",\n").Indent("  ")}\n]";
     }
     else if (o is DebugPrint debug)
     {
