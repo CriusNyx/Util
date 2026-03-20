@@ -32,3 +32,21 @@ a particular type. It includes a single method `EnumerateFields` which expects
 you to return a list of tuples of field names with their values. The `Debug`
 method will recursively print every value which implements `PrintDebug` and
 every element in a collection or dictionary.
+
+For a type you don't own you can register a custom `DebugPrinter` using
+`DebugPrinter.RegisterCustomType`.
+
+```cs
+class ObjectForCustomPrinter
+{
+  public required string Key;
+  public required string Value;
+}
+
+DebugPrint.RegisterCustomType<ObjectForCustomPrinter>(
+  (value) => [nameof(value.Key).With(value.Key), nameof(value.Value).With(value.Value)]
+);
+
+// Will print this object using the custom printer.
+var o = new ObjectForCustomPrinter { Key = "key", Value = "value" };
+```
