@@ -44,8 +44,10 @@ public static class SetExtensions
   /// <param name="set"></param>
   /// <param name="other"></param>
   /// <returns></returns>
-  public static SyncResult<Element> Sync<Set, Element>(this Set set, IEnumerable<Element> other)
-    where Set : ISet<Element>
+  public static SyncResult<Element> Sync<Element>(
+    this ISet<Element> set,
+    IEnumerable<Element> other
+  )
   {
     List<Element> added = new List<Element>();
     List<Element> unchanged = new List<Element>();
