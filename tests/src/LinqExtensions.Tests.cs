@@ -229,6 +229,99 @@ public class LinqExtensionsTests
   }
 
   [Test]
+  public void AddAndTake_List_Works()
+  {
+    List<string> list = new List<string>() { "Hello" };
+    var takenElement = list.AddAndTake("World");
+    Assert.That(takenElement, Is.EqualTo("World"));
+    Assert.That(list, Is.EquivalentTo(new string[] { "Hello", "World" }));
+  }
+
+  [Test]
+  public void AddAndTake_Set_Works()
+  {
+    HashSet<string> set = new HashSet<string>() { "Hello" };
+    var takenElement = set.AddAndTake("World");
+    Assert.That(takenElement, Is.EqualTo("World"));
+    Assert.That(set, Is.EquivalentTo(new string[] { "Hello", "World" }));
+  }
+
+  [Test]
+  public void AddAndTake_Dictionary_Works()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string> { { "Hello", "World" } };
+    var takenElement = dict.AddAndTake("Foo", "Bar");
+    Assert.That(takenElement, Is.EqualTo("Bar"));
+    Assert.That(
+      dict,
+      Is.EqualTo(new Dictionary<string, string>() { { "Hello", "World" }, { "Foo", "Bar" } })
+    );
+  }
+
+  [Test]
+  public void AddAndTake_Dictionary_Collision_Throws()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string>() { { "Hello", "World" } };
+    Assert.Throws<ArgumentException>(() => dict.AddAndTake("Hello", "World"));
+  }
+
+  [Test]
+  public void AddOrGet_Dictionary_NewElement_Works()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string> { { "Hello", "World" } };
+    var takenElement = dict.AddOrGet("Foo", "Bar");
+    Assert.That(takenElement, Is.EqualTo("Bar"));
+    Assert.That(
+      dict,
+      Is.EqualTo(new Dictionary<string, string>() { { "Hello", "World" }, { "Foo", "Bar" } })
+    );
+  }
+
+  [Test]
+  public void AddOrGet_Dictionary_Existing_Works()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string>
+    {
+      { "Hello", "World" },
+      { "Foo", "Baz" },
+    };
+    var takenElement = dict.AddOrGet("Foo", "Bar");
+    Assert.That(takenElement, Is.EqualTo("Baz"));
+    Assert.That(
+      dict,
+      Is.EqualTo(new Dictionary<string, string>() { { "Hello", "World" }, { "Foo", "Baz" } })
+    );
+  }
+
+  [Test]
+  public void ReplaceAndTake_Dictionary_NewElement_Works()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string> { { "Hello", "World" } };
+    var takenElement = dict.ReplaceAndTake("Foo", "Bar");
+    Assert.That(takenElement, Is.EqualTo("Bar"));
+    Assert.That(
+      dict,
+      Is.EqualTo(new Dictionary<string, string>() { { "Hello", "World" }, { "Foo", "Bar" } })
+    );
+  }
+
+  [Test]
+  public void ReplaceAndTake_Dictionary_Existing_Works()
+  {
+    Dictionary<string, string> dict = new Dictionary<string, string>
+    {
+      { "Hello", "World" },
+      { "Foo", "Baz" },
+    };
+    var takenElement = dict.ReplaceAndTake("Foo", "Bar");
+    Assert.That(takenElement, Is.EqualTo("Bar"));
+    Assert.That(
+      dict,
+      Is.EqualTo(new Dictionary<string, string>() { { "Hello", "World" }, { "Foo", "Bar" } })
+    );
+  }
+
+  [Test]
   public void Consume_Empty_Works()
   {
     object[] arr = [];

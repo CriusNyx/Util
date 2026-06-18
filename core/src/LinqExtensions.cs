@@ -274,6 +274,104 @@ public static class LinqExtensions
   }
 
   /// <summary>
+  /// Add the new element to the list and return the new element.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="list"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  public static T? AddAndTake<T>(this IList<T> list, T value)
+  {
+    list.Add(value);
+    return value;
+  }
+
+  /// <summary>
+  /// Add a new element to the set and return the new element.
+  /// Throws if the element already exists in the set.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="set"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  public static T? AddAndTake<T>(this ISet<T> set, T value)
+  {
+    set.Add(value);
+    return value;
+  }
+
+  /// <summary>
+  /// Add the new element to the dictionary and return the new element.
+  /// Throws if the element already exists in the dictionary.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="dict"></param>
+  /// <param name="key"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  public static U? AddAndTake<T, U>(this IDictionary<T, U> dict, T key, U value)
+  {
+    dict.Add(key, value);
+    return value;
+  }
+
+  /// <summary>
+  /// Add the new element to the dictionary, or get the element that already exists in the dictionary.
+  /// Return the new element.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="dict"></param>
+  /// <param name="key"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  public static U? AddOrGet<T, U>(this IDictionary<T, U> dict, T key, U value)
+  {
+    if (dict.TryGetValue(key, out var result))
+    {
+      return result;
+    }
+    return dict.AddAndTake(key, value);
+  }
+
+  /// <summary>
+  /// Add the new element to the dictionary, or create a new element and add it to the dictionary.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="dict"></param>
+  /// <param name="key"></param>
+  /// <param name="generator"></param>
+  /// <returns></returns>
+  public static U AddOrGet<T, U>(this IDictionary<T, U> dict, T key, Func<U> generator)
+  {
+    if (dict.TryGetValue(key, out var result))
+    {
+      return result;
+    }
+    return dict.AddAndTake(key, generator())!;
+  }
+
+  /// <summary>
+  /// Replace the value in the dictionary and return the new value.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="dict"></param>
+  /// <param name="key"></param>
+  /// <param name="value"></param>
+  /// <returns></returns>
+  // I have no idea why this is a problem here. It's not a warning for any of the other methods in this file.
+#pragma warning disable CS8714 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.
+  public static U ReplaceAndTake<T, U>(this Dictionary<T, U> dict, T key, U value)
+#pragma warning restore CS8714 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.
+  {
+    dict[key] = value;
+    return value;
+  }
+
+  /// <summary>
   /// Consume a single element from the enumerator.
   /// </summary>
   /// <param name="source"></param>
