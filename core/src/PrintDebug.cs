@@ -1,8 +1,21 @@
 // RON.NET wasn't really meeting my needs. If a new RON serializer for .NET is created that is more dynamic I should switch to that.
 
 using System.Collections;
+using System.Reflection;
 
 namespace CriusNyx.Util;
+
+/// <summary>
+/// Enable debug printing for fields that have the DebugPrint field attribute.
+/// </summary>
+[AttributeUsage(AttributeTargets.Class)]
+public class DebugPrintAttribute : Attribute { }
+
+/// <summary>
+/// Enable debug printing for field.
+/// </summary>
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class DebugFieldAttribute : Attribute { }
 
 /// <summary>
 /// Apply this interface to an object to added .Debug support to that object.
@@ -50,6 +63,63 @@ public interface DebugPrint
     }
 
     return false;
+  }
+
+  /// <summary>
+  /// Enumerate the fields of a type using reflection.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static IEnumerable<(string, object)> EnumerateWithReflection(object source)
+  {
+    return EnumerateWithReflection(source, source.GetType());
+  }
+
+  /// <summary>
+  /// Enumerate the fields of a type using reflection.
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="type"></param>
+  /// <returns></returns>
+  public static IEnumerable<(string, object)> EnumerateWithReflection(object source, Type type)
+  {
+    return type.GetFields()
+      .Select(x => x.Name.With(x.GetValue(source)))
+      .Concat(type.GetProperties().Select(x => x.Name.With(x.GetValue(source))))!;
+  }
+
+  /// <summary>
+  /// Enumerate fields that have the DebugFieldAttribute
+  /// </summary>
+  /// <param name="source"></param>
+  /// <param name="type"></param>
+  /// <returns></returns>
+  public static IEnumerable<(string, object)> EnumerateWithAttributes(object source, Type type)
+  {
+    var fields = type.GetFields((BindingFlags)(-1))
+      .Where(x => x.GetCustomAttribute<DebugFieldAttribute>(true) is not null)
+      .Select(x => x.Name.With(x.GetValue(source)));
+    var props = type.GetProperties((BindingFlags)(-1))
+      .Where(x => x.GetCustomAttribute<DebugFieldAttribute>(true) is not null)
+      .Select(x => x.Name.With(x.GetValue(source)));
+    return fields.Concat(props)!;
+  }
+
+  /// <summary>
+  /// Enumerate fields that have the DebugFieldAttribute
+  /// </summary>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static IEnumerable<(string, object)> EnumerateWithAttributes(object source)
+  {
+    var type = source.GetType();
+    var fields = type.GetFields()
+      .Where(x => x.GetCustomAttribute<DebugFieldAttribute>(true) is not null)
+      .Select(x => x.Name.With(x.GetValue(source)));
+    var props = type.GetProperties()
+      .Where(x => x.GetCustomAttribute<DebugFieldAttribute>(true) is not null)
+      .Select(x => x.Name.With(x.GetValue(source)));
+    return fields.Concat(props)!;
   }
 }
 
@@ -121,6 +191,10 @@ public static class DebugPrintExtensions
     else if (o is null)
     {
       return "null";
+    }
+    else if (o.GetType() is Type t && t.GetCustomAttribute<DebugPrintAttribute>() is not null)
+    {
+      return PrintObject(t.Name, DebugPrint.EnumerateWithAttributes(o, t));
     }
     return o?.ToString() ?? "";
   }

@@ -13,6 +13,22 @@ public class TestObject : DebugPrint
   }
 }
 
+public class ReflectionTestObject(string publicField, int privateField)
+{
+  public string publicField = publicField;
+  int privateField = privateField;
+}
+
+[DebugPrint]
+public class AttributeTestObject(string publicField, int privateField)
+{
+  [DebugField]
+  public string publicField = publicField;
+
+  [DebugField]
+  int privateField = privateField;
+}
+
 public class PrintDebugTests
 {
   [Test]
@@ -100,5 +116,31 @@ public class PrintDebugTests
     var o = new ObjectForCustomPrinter { Key = "key", Value = "value" };
 
     Assert.That(o.Debug(), Is.EqualTo(expected));
+  }
+
+  [Test]
+  public void PrintDebug_EnumerateWithReflection_Works()
+  {
+    ReflectionTestObject obj = new ReflectionTestObject("test", 2);
+
+    var expected = new (string, object)[] { ("publicField", "test") };
+    var actual = DebugPrint.EnumerateWithReflection(obj, typeof(ReflectionTestObject));
+
+    Assert.That(expected, Is.EquivalentTo(actual));
+  }
+
+  [Test]
+  public void PrintDebug_EnumerateWithAttribute_Works()
+  {
+    AttributeTestObject obj = new AttributeTestObject("test", 2);
+
+    var expected =
+      @"AttributeTestObject {
+  publicField: ""test"",
+  privateField: 2
+}";
+    var actual = obj.Debug();
+
+    Assert.That(expected, Is.EqualTo(actual));
   }
 }
