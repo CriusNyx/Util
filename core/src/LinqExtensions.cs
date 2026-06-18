@@ -280,7 +280,7 @@ public static class LinqExtensions
   /// <param name="list"></param>
   /// <param name="value"></param>
   /// <returns></returns>
-  public static T? AddAndTake<T>(this IList<T> list, T value)
+  public static T AddAndTake<T>(this IList<T> list, T value)
   {
     list.Add(value);
     return value;
@@ -294,7 +294,7 @@ public static class LinqExtensions
   /// <param name="set"></param>
   /// <param name="value"></param>
   /// <returns></returns>
-  public static T? AddAndTake<T>(this ISet<T> set, T value)
+  public static T AddAndTake<T>(this ISet<T> set, T value)
   {
     set.Add(value);
     return value;
@@ -310,7 +310,7 @@ public static class LinqExtensions
   /// <param name="key"></param>
   /// <param name="value"></param>
   /// <returns></returns>
-  public static U? AddAndTake<T, U>(this IDictionary<T, U> dict, T key, U value)
+  public static U AddAndTake<T, U>(this IDictionary<T, U> dict, T key, U value)
   {
     dict.Add(key, value);
     return value;
@@ -326,7 +326,7 @@ public static class LinqExtensions
   /// <param name="key"></param>
   /// <param name="value"></param>
   /// <returns></returns>
-  public static U? AddOrGet<T, U>(this IDictionary<T, U> dict, T key, U value)
+  public static U AddOrGet<T, U>(this IDictionary<T, U> dict, T key, U value)
   {
     if (dict.TryGetValue(key, out var result))
     {
