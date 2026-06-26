@@ -63,6 +63,38 @@ public interface DebugPrint
     customEnumerators.Add(typeof(T), (object o) => enumerateField((T)o));
   }
 
+  internal static Func<object, string>? TryGetPrinterOrNull(Type? t)
+  {
+    if (t == null)
+    {
+      return null;
+    }
+    // Always prefer custom printer.
+    // If the developer specified a custom printer for this type this is what they intended.
+    else if (customEnumerators.TryGetValue(t, out var customEnumerator))
+    {
+      return o => DebugPrintExtensions.PrintObject(o.GetType().Name, customEnumerator(o));
+    }
+    // Custom string printer.
+    else if (customStringImpl.TryGetValue(t, out var customStringPrinter))
+    {
+      return customStringPrinter.Invoke;
+    }
+    // Prefer interface next. If the developer specified the interface then this is what they intend.
+    else if (t.GetInterface(typeof(DebugPrint).ToString()) is not null)
+    {
+      return o =>
+        DebugPrintExtensions.PrintObject(o.GetType().Name, (o as DebugPrint)!.EnumerateFields());
+    }
+    // Use Reflection.
+    else if (t.GetCustomAttribute<DebugPrintAttribute>(false) is DebugPrintAttribute attr)
+    {
+      return o => DebugPrintExtensions.PrintObject(o.GetType().Name, EnumerateWithAttributes(o, t));
+    }
+    // Check parent type.
+    return TryGetPrinterOrNull(t.BaseType);
+  }
+
   /// <summary>
   /// Register custom string print method for Debug Print.
   /// </summary>
@@ -81,34 +113,6 @@ public interface DebugPrint
   {
     customEnumerators.Remove(typeof(T));
     customStringImpl.Remove(typeof(T));
-  }
-
-  internal static bool TryGetCustomEnumerator(Type? type, out CustomDebugPrint_Impl impl)
-  {
-    if (type == null)
-    {
-      impl = null!;
-      return false;
-    }
-    if (customEnumerators.TryGetValue(type, out impl!))
-    {
-      return true;
-    }
-    return TryGetCustomEnumerator(type.BaseType, out impl);
-  }
-
-  internal static bool TryGetCustomStringImpl(Type? type, out CustomDebugStringPrint_Impl impl)
-  {
-    if (type == null)
-    {
-      impl = null!;
-      return false;
-    }
-    if (customStringImpl.TryGetValue(type, out impl!))
-    {
-      return true;
-    }
-    return TryGetCustomStringImpl(type.BaseType, out impl);
   }
 
   /// <summary>
@@ -184,7 +188,7 @@ public static class DebugPrintExtensions
     return body.Select(PrintField).StringJoin(",\n");
   }
 
-  private static string PrintObject(string objectName, IEnumerable<(string, object)> fields)
+  internal static string PrintObject(string objectName, IEnumerable<(string, object)> fields)
   {
     return $"{objectName} {{\n{PrintBody(fields).Indent("  ")}\n}}";
   }
@@ -211,21 +215,9 @@ public static class DebugPrintExtensions
     {
       return "null";
     }
-    else if (o is DebugPrint debugPrint)
+    else if (DebugPrint.TryGetPrinterOrNull(o.GetType()) is var printer && printer is not null)
     {
-      return PrintObject(o.GetType().Name, debugPrint.EnumerateFields());
-    }
-    else if (DebugPrint.TryGetCustomEnumerator(o.GetType(), out var customPrinter))
-    {
-      return PrintObject(o.GetType().Name, customPrinter(o));
-    }
-    else if (DebugPrint.TryGetCustomStringImpl(o.GetType(), out var customStringImpl))
-    {
-      return customStringImpl(o!);
-    }
-    else if (o.GetType() is Type t && t.GetCustomAttribute<DebugPrintAttribute>() is not null)
-    {
-      return PrintObject(t.Name, DebugPrint.EnumerateWithAttributes(o, t));
+      return printer(o);
     }
     else if (o is string str)
     {
