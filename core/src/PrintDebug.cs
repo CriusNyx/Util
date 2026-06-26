@@ -30,16 +30,28 @@ public interface DebugPrint
   IEnumerable<(string, object)> EnumerateFields();
 
   internal delegate IEnumerable<(string, object)> CustomDebugPrint_Impl(object o);
+  internal delegate string CustomDebugStringPrint_Impl(object o);
 
   /// <summary>
-  /// Custom debug print implementation
+  /// Custom debug print implementation.
   /// </summary>
   /// <param name="o"></param>
   /// <returns></returns>
   public delegate IEnumerable<(string, object)> CustomDebugPrint<T>(T o);
 
-  internal static Dictionary<Type, CustomDebugPrint_Impl> customPrinters =
+  /// <summary>
+  /// Custom debug string print implementation.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="o"></param>
+  /// <returns></returns>
+  public delegate string CustomDebugStringPrint<T>(T o);
+
+  internal static Dictionary<Type, CustomDebugPrint_Impl> customEnumerators =
     new Dictionary<Type, CustomDebugPrint_Impl>();
+
+  internal static Dictionary<Type, CustomDebugStringPrint_Impl> customStringImpl =
+    new Dictionary<Type, CustomDebugStringPrint_Impl>();
 
   /// <summary>
   /// Register custom enumeration method for Debug Print.
@@ -48,21 +60,55 @@ public interface DebugPrint
   /// <param name="enumerateField"></param>
   public static void RegisterCustomType<T>(CustomDebugPrint<T> enumerateField)
   {
-    customPrinters.Add(typeof(T), (object o) => enumerateField((T)o));
+    customEnumerators.Add(typeof(T), (object o) => enumerateField((T)o));
   }
 
-  internal static bool TryGetCustomFormatter(Type type, out CustomDebugPrint_Impl impl)
+  /// <summary>
+  /// Register custom string print method for Debug Print.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="stringPrinter"></param>
+  public static void RegisterCustomType<T>(CustomDebugStringPrint<T> stringPrinter)
   {
-    if (customPrinters.TryGetValue(type, out impl!))
+    customStringImpl.Add(typeof(T), (object o) => stringPrinter((T)o));
+  }
+
+  /// <summary>
+  /// Remove custom type from Debug Print.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  public static void DeregisterCustomType<T>()
+  {
+    customEnumerators.Remove(typeof(T));
+    customStringImpl.Remove(typeof(T));
+  }
+
+  internal static bool TryGetCustomEnumerator(Type? type, out CustomDebugPrint_Impl impl)
+  {
+    if (type == null)
+    {
+      impl = null!;
+      return false;
+    }
+    if (customEnumerators.TryGetValue(type, out impl!))
     {
       return true;
     }
-    if (type.BaseType != null)
-    {
-      return TryGetCustomFormatter(type.BaseType, out impl);
-    }
+    return TryGetCustomEnumerator(type.BaseType, out impl);
+  }
 
-    return false;
+  internal static bool TryGetCustomStringImpl(Type? type, out CustomDebugStringPrint_Impl impl)
+  {
+    if (type == null)
+    {
+      impl = null!;
+      return false;
+    }
+    if (customStringImpl.TryGetValue(type, out impl!))
+    {
+      return true;
+    }
+    return TryGetCustomStringImpl(type.BaseType, out impl);
   }
 
   /// <summary>
@@ -159,13 +205,29 @@ public static class DebugPrintExtensions
   /// </summary>
   /// <param name="o"></param>
   /// <returns></returns>
-  public static string Debug(this object o)
+  public static string Debug(this object? o)
   {
-    if (o != null && DebugPrint.TryGetCustomFormatter(o.GetType(), out var customPrinter))
+    if (o == null)
+    {
+      return "null";
+    }
+    else if (o is DebugPrint debugPrint)
+    {
+      return PrintObject(o.GetType().Name, debugPrint.EnumerateFields());
+    }
+    else if (DebugPrint.TryGetCustomEnumerator(o.GetType(), out var customPrinter))
     {
       return PrintObject(o.GetType().Name, customPrinter(o));
     }
-    if (o is string str)
+    else if (DebugPrint.TryGetCustomStringImpl(o.GetType(), out var customStringImpl))
+    {
+      return customStringImpl(o!);
+    }
+    else if (o.GetType() is Type t && t.GetCustomAttribute<DebugPrintAttribute>() is not null)
+    {
+      return PrintObject(t.Name, DebugPrint.EnumerateWithAttributes(o, t));
+    }
+    else if (o is string str)
     {
       return $"\"{str}\"";
     }
@@ -184,19 +246,8 @@ public static class DebugPrintExtensions
     {
       return $"[\n{enumerable.Cast<object>().Select((value) => Debug(value)).StringJoin(",\n").Indent("  ")}\n]";
     }
-    else if (o is DebugPrint debug)
-    {
-      return PrintObject(o.GetType().Name, debug.EnumerateFields());
-    }
-    else if (o is null)
-    {
-      return "null";
-    }
-    else if (o.GetType() is Type t && t.GetCustomAttribute<DebugPrintAttribute>() is not null)
-    {
-      return PrintObject(t.Name, DebugPrint.EnumerateWithAttributes(o, t));
-    }
-    return o?.ToString() ?? "";
+
+    return o.ToString() ?? "";
   }
 
   /// <summary>

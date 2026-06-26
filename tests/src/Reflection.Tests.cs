@@ -4,8 +4,8 @@ namespace CriusNyx.Util.Tests;
 
 class Foo
 {
-  public string field;
-  public string property { get; set; }
+  public string field = null!;
+  public string property { get; set; } = null!;
 }
 
 public class ReflectionTests

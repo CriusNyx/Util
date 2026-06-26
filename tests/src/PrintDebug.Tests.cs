@@ -1,5 +1,3 @@
-using NUnit.Framework.Constraints;
-
 namespace CriusNyx.Util.Tests;
 
 public class TestObject : DebugPrint
@@ -102,12 +100,23 @@ public class PrintDebugTests
     public required string Value;
   }
 
+  class SubClassForCustomPrinter : ObjectForCustomPrinter { }
+
+  class HasOwnDebugPrintImpl : ObjectForCustomPrinter, DebugPrint
+  {
+    public IEnumerable<(string, object)> EnumerateFields()
+    {
+      return ["foo".With("bar")];
+    }
+  }
+
   [Test]
   public void PrintDebug_CustomPrinter_Works()
   {
     DebugPrint.RegisterCustomType<ObjectForCustomPrinter>(
       (value) => [nameof(value.Key).With(value.Key), nameof(value.Value).With(value.Value)]
     );
+
     string expected =
       @"ObjectForCustomPrinter {
   Key: ""key"",
@@ -116,6 +125,75 @@ public class PrintDebugTests
     var o = new ObjectForCustomPrinter { Key = "key", Value = "value" };
 
     Assert.That(o.Debug(), Is.EqualTo(expected));
+
+    DebugPrint.DeregisterCustomType<ObjectForCustomPrinter>();
+
+    Assert.That(
+      o.Debug(),
+      Is.EqualTo("CriusNyx.Util.Tests.PrintDebugTests+ObjectForCustomPrinter")
+    );
+  }
+
+  [Test]
+  public void PrintDebug_CustomPrinter_Subclass_Works()
+  {
+    DebugPrint.RegisterCustomType<ObjectForCustomPrinter>(
+      (value) => [nameof(value.Key).With(value.Key), nameof(value.Value).With(value.Value)]
+    );
+
+    string expected =
+      @"SubClassForCustomPrinter {
+  Key: ""key"",
+  Value: ""value""
+}";
+    var o = new SubClassForCustomPrinter { Key = "key", Value = "value" };
+
+    Assert.That(o.Debug(), Is.EqualTo(expected));
+
+    DebugPrint.DeregisterCustomType<ObjectForCustomPrinter>();
+
+    Assert.That(
+      o.Debug(),
+      Is.EqualTo("CriusNyx.Util.Tests.PrintDebugTests+SubClassForCustomPrinter")
+    );
+  }
+
+  [Test]
+  public void PrintDebug_CustomPrinter_OwnImpl_Works()
+  {
+    DebugPrint.RegisterCustomType<ObjectForCustomPrinter>(
+      (value) => [nameof(value.Key).With(value.Key), nameof(value.Value).With(value.Value)]
+    );
+
+    string expected =
+      @"HasOwnDebugPrintImpl {
+  foo: ""bar""
+}";
+    var o = new HasOwnDebugPrintImpl { Key = "key", Value = "value" };
+
+    Assert.That(o.Debug(), Is.EqualTo(expected));
+
+    DebugPrint.DeregisterCustomType<ObjectForCustomPrinter>();
+
+    Assert.That(o.Debug(), Is.EqualTo(expected));
+  }
+
+  public void PrintDebug_CustomStringImpl_Works()
+  {
+    DebugPrint.RegisterCustomType<ObjectForCustomPrinter>((value) => "Hello world!");
+
+    string expected = "Hello world!";
+
+    var o = new ObjectForCustomPrinter { Key = "key", Value = "value" };
+
+    Assert.That(o.Debug(), Is.EqualTo(expected));
+
+    DebugPrint.DeregisterCustomType<ObjectForCustomPrinter>();
+
+    Assert.That(
+      o.Debug(),
+      Is.EqualTo("CriusNyx.Util.Tests.PrintDebugTests+SubClassForCustomPrinter")
+    );
   }
 
   [Test]
