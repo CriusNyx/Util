@@ -113,6 +113,20 @@ var b = arr.Safe((x) => x[1]);
 // null
 ```
 
+### SafePeek
+
+Peek the next element of a queue or stack. If there is no element return the
+default instead.
+
+```cs
+var queue = new Queue<string>(["Hello"]);
+var a = queue.SafePeek();
+// "Hello"
+queue.Dequeue();
+var b = queue.SafePeek();
+// null
+```
+
 ### Transform
 
 Transform a value to a different form.

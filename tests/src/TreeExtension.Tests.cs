@@ -94,10 +94,10 @@ public class TreeHelperTests
   public void PrintTree_Works()
   {
     var childA = new Tree("childA");
-    var childB = new Tree("childB");
+    var childB = new Tree("childB", new Tree("childC"));
     var parent = new Tree("parent", childA, childB);
 
     var actual = parent.PrintTree(x => x.Children, x => x.Name);
-    Assert.That(actual, Is.EquivalentTo("parent\n|-childA\n|-childB"));
+    Assert.That(actual, Is.EquivalentTo("parent\n|-childA\n|-childB\n| |-childC"));
   }
 }

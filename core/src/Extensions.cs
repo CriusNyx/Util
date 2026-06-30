@@ -240,6 +240,38 @@ public static class Extensions
   }
 
   /// <summary>
+  /// Return the next element of the queue, or the default element.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="queue"></param>
+  /// <param name="fallback"></param>
+  /// <returns></returns>
+  public static T? SafePeek<T>(this Queue<T> queue, T fallback = default!)
+  {
+    if (queue.TryPeek(out var element))
+    {
+      return element;
+    }
+    return fallback;
+  }
+
+  /// <summary>
+  /// Return the element on the top of the stack, or the default element.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="stack"></param>
+  /// <param name="fallback"></param>
+  /// <returns></returns>
+  public static T? SafePeek<T>(this Stack<T> stack, T fallback = default!)
+  {
+    if (stack.TryPeek(out var element))
+    {
+      return element;
+    }
+    return fallback;
+  }
+
+  /// <summary>
   /// Convert the element to a new element.
   /// </summary>
   /// <typeparam name="T"></typeparam>

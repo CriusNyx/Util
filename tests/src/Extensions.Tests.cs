@@ -153,6 +153,24 @@ public class ExtensionTests
   }
 
   [Test]
+  public void SafePeek_Queue_Works()
+  {
+    Queue<string> queue = new Queue<string>(["Hello"]);
+    Assert.That(queue!.SafePeek(), Is.EqualTo("Hello"));
+    queue.Dequeue();
+    Assert.That(queue!.SafePeek(), Is.Null);
+  }
+
+  [Test]
+  public void SafePeek_Stack_Works()
+  {
+    Stack<string> stack = new Stack<string>(["Hello"]);
+    Assert.That(stack!.SafePeek(), Is.EqualTo("Hello"));
+    stack.Pop();
+    Assert.That(stack!.SafePeek(), Is.Null);
+  }
+
+  [Test]
   public void Transform_Works()
   {
     var source = "a";
