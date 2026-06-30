@@ -29,3 +29,16 @@ foreach(var (node, depth) in tree.TraverseFlat((node) => node.GetChildren())){
 // |-B
 // |-C
 ```
+
+### PrintTree
+
+Print the object as a tree.
+
+```cs
+var tree = new Tree("A", new Tree("B"), new Tree("C");
+Console.WriteLine(tree.PrintTree(node => node.GetChildren(), (node) => node.Value));
+// Will print
+// A
+// |-B
+// |-C
+```

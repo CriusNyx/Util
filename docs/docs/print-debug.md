@@ -27,6 +27,8 @@ public class MyClass: DebugPrint{
 }
 ```
 
+## Custom Printers
+
 You can implement the `PrintDebug` interface to customize how `Debug` works for
 a particular type. It includes a single method `EnumerateFields` which expects
 you to return a list of tuples of field names with their values. The `Debug`
@@ -49,4 +51,31 @@ DebugPrint.RegisterCustomType<ObjectForCustomPrinter>(
 
 // Will print this object using the custom printer.
 var o = new ObjectForCustomPrinter { Key = "key", Value = "value" };
+```
+
+## Using annotations
+
+You can use the `DebugPrint` and `DebugField` annotations to automatically
+generate the debug print implementation using reflection.
+
+```cs
+MyClass element = new MyClass{
+  a = "Hello",
+  b = 10
+};
+
+Console.WriteLine(element.Debug());
+
+// MyClass{
+//   a: "Hello",
+//   b: 10
+// }
+
+[DebugPrint]
+public class MyClass{
+  [DebugField]
+  public string a;
+  [DebugField]
+  public int b;
+}
 ```

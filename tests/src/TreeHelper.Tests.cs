@@ -10,7 +10,7 @@ public class TreeHelperTests
     public Tree(string name)
       : this(name, []) { }
 
-    public IEnumerable<Tree> Getchildren()
+    public IEnumerable<Tree> GetChildren()
     {
       return Children;
     }
@@ -88,5 +88,16 @@ public class TreeHelperTests
       actual,
       Is.EquivalentTo(new (Tree, int)[] { parent.With(0), childA.With(1), childB.With(1) })
     );
+  }
+
+  [Test]
+  public void PrintTree_Works()
+  {
+    var childA = new Tree("childA");
+    var childB = new Tree("childB");
+    var parent = new Tree("parent", childA, childB);
+
+    var actual = parent.PrintTree(x => x.Children, x => x.Name);
+    Assert.That(actual, Is.EquivalentTo("parent\n|-childA\n|-childB"));
   }
 }

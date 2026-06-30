@@ -23,6 +23,10 @@ a set of strings into one string.
 
 Extension methods for traversing tree.
 
+## [Reflection](./reflection-extensions.md)
+
+Extension methods for performing operations with reflection.
+
 ## [Print Debug](./print-debug)
 
 Allows you to print a debug representation of an object in a way that resembles

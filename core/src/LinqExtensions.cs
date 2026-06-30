@@ -164,16 +164,7 @@ public static class LinqExtensions
   )
     where Key : notnull
   {
-    if (dictionary.TryGetValue(key, out var value))
-    {
-      return value;
-    }
-    else
-    {
-      var output = create();
-      dictionary[key] = output;
-      return output;
-    }
+    return dictionary.AddOrGet(key, create);
   }
 
   /// <summary>

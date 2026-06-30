@@ -119,6 +119,10 @@ var zipped = names.InnerZip(values);
 
 Zips the elements matching the length of the longer element.
 
+### GetOrSet
+
+Alias for AddOrGet.
+
 ### Take
 
 Take up to 6 elements from a enumerable.
@@ -127,6 +131,45 @@ Take up to 6 elements from a enumerable.
 object source = [1, "hello", 3];
 var (integer, str) = source.Take<int, string>();
 // Will be 1 and "hello"
+```
+
+### AddAndTake
+
+Add an element to the list, and return that new element.
+
+```cs
+List<string> list = new List<string>();
+var element = list.AddAndTake("Hello");
+// list will be ["Hello"], element will be "Hello"
+```
+
+### AddOrGet
+
+Add a new element to the set or get the existing one.
+
+```cs
+Dictionary<string, string> dictionary = new Dictionary<string, string>(){
+  {"Foo", "Bar"},
+};
+
+var a = dictionary.GetOrSet("Foo", () => "World!");
+// Will be "Bar"
+var b = dictionary.GetOrSet("Hello", () => "World!");
+// Will be "World!"
+```
+
+### ReplaceAndTake
+
+Or or replace the element in the dictionary and return the new element.
+
+```cs
+Dictionary<string, string> dictionary = new Dictionary<string, string>();
+var a = dictionary.ReplaceAndTake("Hello", "World!");
+// dictionary will be { "Hello": "World!" }
+// a will be "World!"
+var b = dictionary.ReplaceAndTake("Hello", "AHHH!");
+// dictionary will be { "Hello": "AHHH!" }
+// b will be "AHHH!"
 ```
 
 ### Consume
