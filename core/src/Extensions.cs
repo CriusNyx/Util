@@ -11,7 +11,7 @@ public static class Extensions
   /// <typeparam name="T"></typeparam>
   /// <param name="value"></param>
   /// <returns></returns>
-  public static T? As<T>(this object value)
+  public static T? As<T>(this object? value)
   {
     if (value is T t)
     {
@@ -28,7 +28,7 @@ public static class Extensions
   /// <param name="value"></param>
   /// <param name="fieldName"></param>
   /// <returns></returns>
-  public static T AsNotNull<T>(this object value, string? fieldName = null)
+  public static T AsNotNull<T>(this object? value, string? fieldName = null)
   {
     return value.As<T>().NotNull(fieldName);
   }
