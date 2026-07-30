@@ -366,7 +366,7 @@ public static class LinqExtensions
   /// Consume a single element from the enumerator.
   /// </summary>
   /// <param name="source"></param>
-  /// <returns></returns>
+  /// <returns>The next element from the enumerator.</returns>
   public static object? Consume(this IEnumerator source)
   {
     if (source.MoveNext())
@@ -382,7 +382,7 @@ public static class LinqExtensions
   /// <typeparam name="T"></typeparam>
   /// <param name="source"></param>
   /// <param name="defaultValue"></param>
-  /// <returns></returns>
+  /// <returns>The next element from the enumerator.</returns>
   public static T Consume<T>(this IEnumerator source, T defaultValue = default!)
   {
     if (source.MoveNext() && source.Current is T t)
@@ -397,7 +397,7 @@ public static class LinqExtensions
   /// </summary>
   /// <param name="source"></param>
   /// <param name="value"></param>
-  /// <returns></returns>
+  /// <returns>True if there is an element in the enumerator.</returns>
   public static bool TryConsume(this IEnumerator source, out object value)
   {
     if (source.MoveNext())
@@ -407,5 +407,49 @@ public static class LinqExtensions
     }
     value = default!;
     return false;
+  }
+
+  /// <summary>
+  /// Returns true if every predicate matches every coresponding list element.
+  /// </summary>
+  /// <param name="list"></param>
+  /// <param name="predicates"></param>
+  /// <returns>True if every predicate matches.</returns>
+  public static bool Match<T>(this IEnumerable<T> list, params Func<T, bool>[] predicates)
+  {
+    if (list.Count() != predicates.Length)
+    {
+      return false;
+    }
+    foreach (var (element, predicate) in list.Zip(predicates))
+    {
+      if (!predicate(element))
+      {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /// <summary>
+  /// Returns true if every provided predicate matches the coresponding list elements, ignoring elements without provided predicates.
+  /// </summary>
+  /// <param name="list"></param>
+  /// <param name="predicates"></param>
+  /// <returns>True if every predicate matches.</returns>
+  public static bool MatchStart<T>(this IEnumerable<T> list, params Func<T, bool>[] predicates)
+  {
+    if (list.Count() < predicates.Length)
+    {
+      return false;
+    }
+    foreach (var (element, predicate) in list.Zip(predicates))
+    {
+      if (!predicate(element))
+      {
+        return false;
+      }
+    }
+    return true;
   }
 }

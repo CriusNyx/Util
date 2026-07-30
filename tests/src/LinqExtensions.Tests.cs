@@ -426,4 +426,60 @@ public class LinqExtensionsTests
     var actual = arr.GetEnumerator().Consume<string>("empty");
     Assert.That(actual, Is.EqualTo("empty"));
   }
+
+  [Test]
+  public void Match_Shorter_Fails()
+  {
+    object[] arr = ["hello"];
+    Assert.False(arr.Match((x) => true, (x) => true));
+  }
+
+  [Test]
+  public void Match_Longer_Fails()
+  {
+    object[] arr = ["hello", "world"];
+    Assert.False(arr.Match((x) => true));
+  }
+
+  [Test]
+  public void Match_FailingPredicate_Fails()
+  {
+    object[] arr = ["hello"];
+    Assert.False(arr.Match((x) => x is int));
+  }
+
+  [Test]
+  public void Match_MatchingPredicate_Succeeds()
+  {
+    object[] arr = ["hello"];
+    Assert.True(arr.Match((x) => x is string));
+  }
+
+  [Test]
+  public void MatchStart_Shorter_Fails()
+  {
+    object[] arr = ["hello"];
+    Assert.False(arr.MatchStart((x) => true, (x) => true));
+  }
+
+  [Test]
+  public void MatchStart_Longer_Succeeds()
+  {
+    object[] arr = ["hello", "world"];
+    Assert.True(arr.MatchStart((x) => x is string));
+  }
+
+  [Test]
+  public void MatchStart_FailingPredicate_Fails()
+  {
+    object[] arr = ["hello"];
+    Assert.False(arr.MatchStart((x) => x is int));
+  }
+
+  [Test]
+  public void MatchStart_MatchingPredicate_Succeeds()
+  {
+    object[] arr = ["hello"];
+    Assert.True(arr.MatchStart((x) => x is string));
+  }
 }

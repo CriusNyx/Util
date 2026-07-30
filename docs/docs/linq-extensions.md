@@ -9,8 +9,8 @@ function doesn't return.
 var elements = [new Value("Hello"), new Value(null)];
 
 elements.WithIndex().Foreach((pair) => {
-    if(pair.value.inner == null){ 
-      Console.WriteError($"Value is null on element {pair.index}"); 
+    if(pair.value.inner == null){
+      Console.WriteError($"Value is null on element {pair.index}");
     }
   }
 )
@@ -202,5 +202,48 @@ Same as consume but following C#'s try style.
 object[] source = [1, "hello", 3];
 if(source.TryConsume(out var a)){
   // a will be 1.
+}
+```
+
+### Match
+
+Returns true if every predicate matches the corresponding list element.
+If the number of predicates doesn't match the number of list elements then it returns false.
+
+```cs
+object[] source = ["hello"];
+
+if(source.Match((x) => x is string)){
+  // This will be true.
+}
+if(source.Match((x) => x is int)){
+  // This will be false.
+}
+```
+
+```cs
+object[] source = ["hello", "world"];
+
+if(source.Match((x) => x is string)){
+  // This will be false. Not enough predicates provided.
+}
+```
+
+### MatchStart
+
+Returns true if every predicate matches the corresponding list element.
+If there are more list elements then predciates provided then it will ignore the remaining list elements.
+
+```cs
+object[] source = ["hello", "world"];
+
+if(source.MatchStart((x) => x is string)){
+  // This will be true.
+}
+if(source.MatchStart((x) => x is int)){
+  // This will still be false.
+}
+if(source.MatchStart((x) => x is string, (x) => x is string, (x) => x is string)){
+  // This will be false.
 }
 ```
