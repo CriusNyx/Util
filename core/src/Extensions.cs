@@ -30,7 +30,20 @@ public static class Extensions
   /// <returns></returns>
   public static T AsNotNull<T>(this object? value, string? fieldName = null)
   {
-    return value.As<T>().NotNull(fieldName);
+    if (value is T t)
+    {
+      return t;
+    }
+    else if (value is null)
+    {
+      throw CreateNullException(fieldName);
+    }
+    else
+    {
+      throw new NullReferenceException(
+        $"Object of type {value.GetType()} was expected to be of type ${typeof(T)}"
+      );
+    }
   }
 
   /// <summary>
@@ -46,16 +59,26 @@ public static class Extensions
   {
     if (value == null)
     {
-      if (fieldName != null)
-      {
-        throw new NullReferenceException($"{fieldName} is null");
-      }
-      else
-      {
-        throw new NullReferenceException();
-      }
+      throw CreateNullException(fieldName);
     }
     return value!;
+  }
+
+  /// <summary>
+  /// Create a null reference exception for the named field.
+  /// </summary>
+  /// <param name="fieldName"></param>
+  /// <returns></returns>
+  private static Exception CreateNullException(string? fieldName)
+  {
+    if (fieldName != null)
+    {
+      return new NullReferenceException($"{fieldName} is null");
+    }
+    else
+    {
+      return new NullReferenceException();
+    }
   }
 
   /// <summary>
