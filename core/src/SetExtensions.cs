@@ -39,7 +39,6 @@ public static class SetExtensions
   /// Return a list of changes.
   /// This will mutate the source set.
   /// </summary>
-  /// <typeparam name="Set"></typeparam>
   /// <typeparam name="Element"></typeparam>
   /// <param name="set"></param>
   /// <param name="other"></param>

@@ -265,6 +265,61 @@ public static class LinqExtensions
   }
 
   /// <summary>
+  /// Take 2 elements from the source.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, T?) Take2<T>(this IEnumerable<T> source)
+  {
+    return source.Take<T, T>();
+  }
+
+  /// <summary>
+  /// Take 3 elements from the source.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, T?, T?) Take3<T>(this IEnumerable<T> source)
+  {
+    return source.Take<T, T, T>();
+  }
+
+  /// <summary>
+  /// Take 4 elements from the source.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, T?, T?, T?) Take4<T>(this IEnumerable<T> source)
+  {
+    return source.Take<T, T, T, T>();
+  }
+
+  /// <summary>
+  /// Take 5 elements from the source.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, T?, T?, T?, T?) Take5<T>(this IEnumerable<T> source)
+  {
+    return source.Take<T, T, T, T, T>();
+  }
+
+  /// <summary>
+  /// Take 6 elements from the source.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <param name="source"></param>
+  /// <returns></returns>
+  public static (T?, T?, T?, T?, T?, T?) Take6<T>(this IEnumerable<T> source)
+  {
+    return source.Take<T, T, T, T, T, T>();
+  }
+
+  /// <summary>
   /// Add the new element to the list and return the new element.
   /// </summary>
   /// <typeparam name="T"></typeparam>

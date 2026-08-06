@@ -229,6 +229,17 @@ public class LinqExtensionsTests
   }
 
   [Test]
+  public void TakeN_Works()
+  {
+    int[] source = [1, 2, 3, 4, 5, 6];
+    Assert.That(source.Take2(), Is.EqualTo((1, 2)));
+    Assert.That(source.Take3(), Is.EqualTo((1, 2, 3)));
+    Assert.That(source.Take4(), Is.EqualTo((1, 2, 3, 4)));
+    Assert.That(source.Take5(), Is.EqualTo((1, 2, 3, 4, 5)));
+    Assert.That(source.Take6(), Is.EqualTo((1, 2, 3, 4, 5, 6)));
+  }
+
+  [Test]
   public void AddAndTake_List_Works()
   {
     List<string> list = new List<string>() { "Hello" };
