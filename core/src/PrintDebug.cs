@@ -9,7 +9,22 @@ namespace CriusNyx.Util;
 /// Enable debug printing for fields that have the DebugPrint field attribute.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public class DebugPrintAttribute : Attribute { }
+public class DebugPrintAttribute : Attribute
+{
+  /// <summary>
+  /// If enabled, automatically enable for all public fields.
+  /// </summary>
+  public bool Auto { get; private set; }
+
+  /// <summary>
+  /// Enable debug printing for fields that have the DebugPrint field attribute.
+  /// </summary>
+  /// <param name="auto">If set, automatically enable for all public fields.</param>
+  public DebugPrintAttribute(bool auto = false)
+  {
+    this.Auto = auto;
+  }
+}
 
 /// <summary>
 /// Enable debug printing for field.
@@ -89,7 +104,15 @@ public interface DebugPrint
     // Use Reflection.
     else if (t.GetCustomAttribute<DebugPrintAttribute>(false) is DebugPrintAttribute attr)
     {
-      return o => DebugPrintExtensions.PrintObject(o.GetType().Name, EnumerateWithAttributes(o, t));
+      if (attr.Auto)
+      {
+        return o => DebugPrintExtensions.PrintObject(o.GetType().Name, EnumerateWithReflection(o));
+      }
+      else
+      {
+        return o =>
+          DebugPrintExtensions.PrintObject(o.GetType().Name, EnumerateWithAttributes(o, t));
+      }
     }
     // Check parent type.
     return TryGetPrinterOrNull(t.BaseType);
@@ -126,7 +149,7 @@ public interface DebugPrint
   }
 
   /// <summary>
-  /// Enumerate the fields of a type using reflection.
+  /// Enumerate the public fields and properties of a type using reflection.
   /// </summary>
   /// <param name="source"></param>
   /// <param name="type"></param>

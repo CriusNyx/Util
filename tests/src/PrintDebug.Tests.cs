@@ -27,6 +27,13 @@ public class AttributeTestObject(string publicField, int privateField)
   int privateField = privateField;
 }
 
+[DebugPrint(auto: true)]
+public class AutoTestObject(string publicField, int privateField)
+{
+  public string publicField = publicField;
+  int privatEField = privateField;
+}
+
 public class PrintDebugTests
 {
   [Test]
@@ -219,6 +226,20 @@ public class PrintDebugTests
 }";
     var actual = obj.Debug();
 
+    Assert.That(expected, Is.EqualTo(actual));
+  }
+
+  [Test]
+  public void PrintDebug_Auto_Works()
+  {
+    AutoTestObject obj = new("test", 2);
+
+    var expected =
+      @"AutoTestObject {
+  publicField: ""test""
+}";
+
+    var actual = obj.Debug();
     Assert.That(expected, Is.EqualTo(actual));
   }
 }

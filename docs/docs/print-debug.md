@@ -79,3 +79,28 @@ public class MyClass{
   public int b;
 }
 ```
+
+## Auto Debug
+
+If you enable the auto flat on the DebugPrint attribute, it will automatically
+apply the DebugField attribute to all public fields and properties.
+
+```C#
+MyClass element = new MyClass{
+  a = "Hello",
+  b = 10
+};
+
+Console.WriteLine(element.Debug());
+
+// MyClass{
+//   a: "Hello",
+//   b: 10
+// }
+
+[DebugPrint(auto: true)]
+public class MyClass{
+  public string a;
+  public int b;
+}
+```
