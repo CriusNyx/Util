@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CriusNyx.Util;
 
@@ -124,7 +125,7 @@ public static class LinqExtensions
   )
   {
     int len = Math.Min(left.Count(), right.Count());
-    return left.Take(len).Zip(right.Take(len));
+    return left.Take(len).Zip(right.Take(len), (x, y) => (x, y));
   }
 
   /// <summary>
@@ -145,7 +146,7 @@ public static class LinqExtensions
   )
   {
     int len = Math.Max(left.Count(), right.Count());
-    return left.PadWith(len, defaultLeft).Zip(right.PadWith(len, defaultRight));
+    return left.PadWith(len, defaultLeft).Zip(right.PadWith(len, defaultRight), (x, y) => (x, y));
   }
 
   /// <summary>
@@ -476,7 +477,7 @@ public static class LinqExtensions
     {
       return false;
     }
-    foreach (var (element, predicate) in list.Zip(predicates))
+    foreach (var (element, predicate) in list.Zip(predicates, (x, y) => (x, y)))
     {
       if (!predicate(element))
       {
@@ -498,7 +499,7 @@ public static class LinqExtensions
     {
       return false;
     }
-    foreach (var (element, predicate) in list.Zip(predicates))
+    foreach (var (element, predicate) in list.Zip(predicates, (x, y) => (x, y)))
     {
       if (!predicate(element))
       {

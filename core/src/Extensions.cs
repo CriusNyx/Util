@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace CriusNyx.Util;
 
 /// <summary>
@@ -260,6 +262,28 @@ public static class Extensions
     {
       return default;
     }
+  }
+
+  private static bool TryPeek<T>(this Queue<T> queue, out T result)
+  {
+    if (queue.Count > 0)
+    {
+      result = queue.First();
+      return true;
+    }
+    result = default!;
+    return false;
+  }
+
+  private static bool TryPeek<T>(this Stack<T> stack, out T result)
+  {
+    if (stack.Count > 0)
+    {
+      result = stack.Peek();
+      return true;
+    }
+    result = default!;
+    return false;
   }
 
   /// <summary>

@@ -15,7 +15,7 @@ public static class StringExtensions
   /// <returns></returns>
   public static string Indent(this string source, string indentation)
   {
-    return source.Split("\n").Select(x => $"{indentation}{x}").StringJoin("\n");
+    return source.Split('\n').Select(x => $"{indentation}{x}").StringJoin("\n");
   }
 
   /// <summary>

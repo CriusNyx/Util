@@ -20,7 +20,9 @@ public static class EquivalentExtensions
     {
       return false;
     }
-    return source.Zip(other).All((a) => a.First.Equivalent(a.Second!));
+    return source
+      .Zip(other, (x, y) => (First: x, Second: y))
+      .All((a) => a.First.Equivalent(a.Second!));
   }
 
   /// <summary>
@@ -38,7 +40,7 @@ public static class EquivalentExtensions
   )
     where Value : Equivalent
   {
-    var keys = source.Keys.Concat(other.Keys).ToHashSet();
+    var keys = new HashSet<Key>(source.Keys.Concat(other.Keys));
     foreach (var key in keys)
     {
       if (
