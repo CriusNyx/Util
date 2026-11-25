@@ -101,6 +101,8 @@ public class ExtensionTests
     var d = new object();
 
     Assert.That(a.With(b), Is.EqualTo((a, b)));
+    Assert.That(a.With(b, c), Is.EqualTo((a, b, c)));
+    Assert.That(a.With(b, c, d), Is.EqualTo((a, b, c, d)));
     Assert.That(a.With(b).AndWith(c), Is.EqualTo((a, b, c)));
     Assert.That(a.With(b).AndWith(c).AndWith(d), Is.EqualTo((a, b, c, d)));
   }

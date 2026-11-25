@@ -115,9 +115,26 @@ var zipped = names.InnerZip(values);
 // Will be [("Sam", 3), ("Heartman", 0)];
 ```
 
-### OuterZip
+### ZipWith
 
-Zips the elements matching the length of the longer element.
+Zips the elements with the results of a with function.
+
+```cs
+string[] names = ["Sam", "Heartman"];
+var zipped = names.ZipWith(x => x[0]);
+// Will be [("Sam", 'S'), ("Heartman", 'H')];
+```
+
+### AndZipWith
+
+Zips the list of tuples with the results of a with function. Works with up to 4
+tuples.
+
+```cs
+string[] names = ["Sam", "Heartman"];
+var zipped = names.ZipWith(x => x[0]).AndZipWith((pair) => char.ToLower(pair.b));
+// Will be [("Sam", 'S', 's'), ("Heartman", 'H', 'm')];
+```
 
 ### GetOrSet
 
@@ -207,8 +224,9 @@ if(source.TryConsume(out var a)){
 
 ### Match
 
-Returns true if every predicate matches the corresponding list element.
-If the number of predicates doesn't match the number of list elements then it returns false.
+Returns true if every predicate matches the corresponding list element. If the
+number of predicates doesn't match the number of list elements then it returns
+false.
 
 ```cs
 object[] source = ["hello"];
@@ -231,8 +249,9 @@ if(source.Match((x) => x is string)){
 
 ### MatchStart
 
-Returns true if every predicate matches the corresponding list element.
-If there are more list elements then predciates provided then it will ignore the remaining list elements.
+Returns true if every predicate matches the corresponding list element. If there
+are more list elements then predciates provided then it will ignore the
+remaining list elements.
 
 ```cs
 object[] source = ["hello", "world"];

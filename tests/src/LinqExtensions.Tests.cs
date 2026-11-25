@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace CriusNyx.Util.Tests;
 
 class ClassA { }
@@ -78,6 +80,90 @@ public class LinqExtensionsTests
     int[] values = [3];
     var actual = names.InnerZip(values);
     Assert.That(actual, Is.EquivalentTo(new (string, int)[] { "Sam".With(3) }));
+  }
+
+  [Test]
+  public void ZipWith_Works()
+  {
+    string[] names = ["Sam", "Heartman"];
+    var actual = names.ZipWith(x => x[0]);
+    Assert.That(
+      actual,
+      Is.EquivalentTo(new (string, char)[] { "Sam".With('S'), "Heartman".With('H') })
+    );
+  }
+
+  [Test]
+  public void ZipWith3_Works()
+  {
+    string[] names = ["Sam", "Heartman"];
+    var actual = names.ZipWith(x => x[0], x => char.ToLower(x[0]));
+    Assert.That(
+      actual,
+      Is.EquivalentTo(
+        new (string, char, char)[]
+        {
+          "Sam".With('S').AndWith('s'),
+          "Heartman".With('H').AndWith('h'),
+        }
+      )
+    );
+  }
+
+  [Test]
+  public void ZipWith4_Works()
+  {
+    string[] names = ["Sam", "Heartman"];
+    var actual = names.ZipWith(x => x[0], x => char.ToLower(x[0]), x => x.Last());
+    Assert.That(
+      actual,
+      Is.EquivalentTo(
+        new (string, char, char, char)[]
+        {
+          "Sam".With('S').AndWith('s').AndWith('m'),
+          "Heartman".With('H').AndWith('h').AndWith('n'),
+        }
+      )
+    );
+  }
+
+  [Test]
+  public void AndZipWith3_Works()
+  {
+    string[] names = ["Sam", "Heartman"];
+    var actual = names.ZipWith(x => x[0]).AndZipWith((pair) => char.ToLower(pair.b));
+
+    Assert.That(
+      actual,
+      Is.EquivalentTo(
+        new (string, char, char)[]
+        {
+          "Sam".With('S').AndWith('s'),
+          "Heartman".With('H').AndWith('h'),
+        }
+      )
+    );
+  }
+
+  [Test]
+  public void AndZipWith4_Works()
+  {
+    string[] names = ["Sam", "Heartman"];
+    var actual = names
+      .ZipWith(x => x[0])
+      .AndZipWith((pair) => char.ToLower(pair.b))
+      .AndZipWith((values) => values.a.Last());
+
+    Assert.That(
+      actual,
+      Is.EquivalentTo(
+        new (string, char, char, char)[]
+        {
+          "Sam".With('S').AndWith('s').AndWith('m'),
+          "Heartman".With('H').AndWith('h').AndWith('n'),
+        }
+      )
+    );
   }
 
   [Test]

@@ -121,6 +121,38 @@ public static class Extensions
   }
 
   /// <summary>
+  /// Create a tuple with the this element and the other elements.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="b"></param>
+  /// <param name="c"></param>
+  /// <returns></returns>
+  public static (T, U, V) With<T, U, V>(this T value, U b, V c)
+  {
+    return (value, b, c);
+  }
+
+  /// <summary>
+  /// Create a tuple with the this element and the other elements.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <param name="value"></param>
+  /// <param name="b"></param>
+  /// <param name="c"></param>
+  /// <param name="d"></param>
+  /// <returns></returns>
+  public static (T, U, V, W) With<T, U, V, W>(this T value, U b, V c, W d)
+  {
+    return (value, b, c, d);
+  }
+
+  /// <summary>
   /// Extend a tuple with an additional element.
   /// </summary>
   /// <typeparam name="T"></typeparam>

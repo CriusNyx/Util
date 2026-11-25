@@ -150,6 +150,113 @@ public static class LinqExtensions
   }
 
   /// <summary>
+  /// Uses the with function to zip the original element with the results of the with function.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <param name="original"></param>
+  /// <param name="with"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T original, U with)> ZipWith<T, U>(
+    this IEnumerable<T> original,
+    Func<T, U> with
+  )
+  {
+    foreach (var element in original)
+    {
+      yield return (element, with(element));
+    }
+  }
+
+  /// <summary>
+  /// Uses the with function to zip the original element with the results of the with function.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <param name="original"></param>
+  /// <param name="with"></param>
+  /// <param name="andWith"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T a, U b, V c)> ZipWith<T, U, V>(
+    this IEnumerable<T> original,
+    Func<T, U> with,
+    Func<T, V> andWith
+  )
+  {
+    foreach (var element in original)
+    {
+      yield return (element, with(element), andWith(element));
+    }
+  }
+
+  /// <summary>
+  /// Uses the with function to zip the original element with the results of the with function.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <param name="original"></param>
+  /// <param name="b"></param>
+  /// <param name="c"></param>
+  /// <param name="d"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T a, U b, V c, W d)> ZipWith<T, U, V, W>(
+    this IEnumerable<T> original,
+    Func<T, U> b,
+    Func<T, V> c,
+    Func<T, W> d
+  )
+  {
+    foreach (var element in original)
+    {
+      yield return (element, b(element), c(element), d(element));
+    }
+  }
+
+  /// <summary>
+  /// Uses the with function to zip the original elements with the results of the with function.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <param name="original"></param>
+  /// <param name="with"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T a, U b, V with)> AndZipWith<T, U, V>(
+    this IEnumerable<(T, U)> original,
+    Func<(T a, U b), V> with
+  )
+  {
+    foreach (var (a, b) in original)
+    {
+      yield return (a, b, with((a, b)));
+    }
+  }
+
+  /// <summary>
+  /// Uses the with function to zip the original elements with the results of the with function.
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  /// <typeparam name="U"></typeparam>
+  /// <typeparam name="V"></typeparam>
+  /// <typeparam name="W"></typeparam>
+  /// <param name="original"></param>
+  /// <param name="with"></param>
+  /// <returns></returns>
+  public static IEnumerable<(T a, U b, V c, W with)> AndZipWith<T, U, V, W>(
+    this IEnumerable<(T, U, V)> original,
+    Func<(T a, U b, V c), W> with
+  )
+  {
+    foreach (var (a, b, c) in original)
+    {
+      yield return (a, b, c, with((a, b, c)));
+    }
+  }
+
+  /// <summary>
   /// Get or set the specified key in the dictionary.
   /// </summary>
   /// <typeparam name="Key"></typeparam>
