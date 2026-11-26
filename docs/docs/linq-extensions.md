@@ -266,3 +266,12 @@ if(source.MatchStart((x) => x is string, (x) => x is string, (x) => x is string)
   // This will be false.
 }
 ```
+
+### RangeTo
+
+Converts an integer into an enumerable.
+
+```cs
+2.RangeUntil(); // [0, 1]
+2.RangeUntil(4); // [2, 3]
+```

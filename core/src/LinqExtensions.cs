@@ -615,4 +615,25 @@ public static class LinqExtensions
     }
     return true;
   }
+
+  /// <summary>
+  /// Convert the integer to a range starting at 0.
+  /// </summary>
+  /// <param name="to"></param>
+  /// <returns></returns>
+  public static IEnumerable<int> RangeTo(this int to)
+  {
+    return Enumerable.Range(0, to);
+  }
+
+  /// <summary>
+  /// Convert the integer to a range starting at value, and continuing until to.
+  /// </summary>
+  /// <param name="start"></param>
+  /// <param name="to"></param>
+  /// <returns></returns>
+  public static IEnumerable<int> RangeTo(this int start, int to)
+  {
+    return Enumerable.Range(start, to - start);
+  }
 }

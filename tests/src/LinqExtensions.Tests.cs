@@ -579,4 +579,16 @@ public class LinqExtensionsTests
     object[] arr = ["hello"];
     Assert.True(arr.MatchStart((x) => x is string));
   }
+
+  [Test]
+  public void RangeTo_Works()
+  {
+    Assert.That(2.RangeTo(), Is.EquivalentTo(new int[] { 0, 1 }));
+  }
+
+  [Test]
+  public void RangeTo2_Works()
+  {
+    Assert.That(3.RangeTo(5), Is.EquivalentTo(new int[] { 3, 4 }));
+  }
 }
